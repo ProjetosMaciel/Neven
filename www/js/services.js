@@ -289,9 +289,6 @@ angular.module('starter.services', [])
                else{ // SUCCESS
 
                     window.localStorage['session'] = JSON.stringify(response);
-										$ionicPopup.alert({
-	                       title: 'Token enviado',
-	                       template: 'Enviamos um codigo de verificação para o seu endereço de e-mail. Insira-o no campo abaixo.' });
                     $state.transitionTo('validarEmail');
                }
               })
@@ -385,7 +382,10 @@ angular.module('starter.services', [])
 	}
 	function adicionarAmigo(donoEmail){
 
-
+		$ionicPopup.alert({
+				title: 'adicionarAmigo service',
+				template: donoEmail
+		});
 		$rootScope.rootScopeDonoEmail = donoEmail;
 		$state.transitionTo('menu.livrando_meus_amigos_adicionar_clicado');
 	}
