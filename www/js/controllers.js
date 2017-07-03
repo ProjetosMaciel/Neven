@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['firebase','ngOpenFB'])
 //***********************************************teste**************git
-
+///
 .controller('MeusAmigosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
 	$scope.$on('$ionicView.enter', function(e) {
@@ -11,7 +11,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	$scope.buscarAmigo = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
 
-		$http.post("http://172.17.0.13:3000/buscarAmigo",
+		$http.post("http://192.168.43.78:3000/buscarAmigo",
 			{ params: {
 						//"relacao_de": $scope.session.email
 						"userEmail": $scope.session.email
@@ -32,7 +32,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 	$scope.buscarPessoaSolicitacaoAmizade = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarPessoaSolicitacaoAmizade",
+		$http.post("http://192.168.43.78:3000/buscarPessoaSolicitacaoAmizade",
 			{ params: {
 						"relacao_para": $scope.session.email
 						}
@@ -67,7 +67,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			if(res) {
 				//cadastrar valor 2 no bd
 				//IonicLogin.aceitarAmizade($scope.session.email, email);
-				$http.post("http://172.17.0.13:3000/aceitarAmizade",
+				$http.post("http://192.168.43.78:3000/aceitarAmizade",
 					{ params: {
 						"relacao_para": $scope.session.email,
 						"userEmail": email
@@ -91,7 +91,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			} else {
 				//cadastrar valor 0 no bd
 				//IonicLogin.recusarAmizade($scope.session.email, email);
-				$http.post("http://172.17.0.13:3000/recusarAmizade",
+				$http.post("http://192.168.43.78:3000/recusarAmizade",
 					{ params: {
 						"relacao_para": $scope.session.email,
 						"userEmail": email
@@ -107,7 +107,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 		});
 	}
 	$scope.buscarLivrosAmigo = function(emailAmigo){
-		$http.post("http://172.17.0.13:3000/buscarLivrosAmigo",
+		$http.post("http://192.168.43.78:3000/buscarLivrosAmigo",
 			{ params: {
 								"userEmail": emailAmigo
 							}
@@ -205,7 +205,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	$scope.buscarPessoa = function(textoBusca){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
 		if (textoBusca) {
-		$http.post("http://172.17.0.13:3000/buscarPessoa",
+		$http.post("http://192.168.43.78:3000/buscarPessoa",
 			{ params: {
 						"textoBusca": textoBusca,
 						"userLoged": $scope.session.email}
@@ -239,7 +239,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 		}
 	}
 	$scope.buscarPessoaClicada = function(email){
-		$http.post("http://172.17.0.13:3000/buscarPessoaClicada",
+		$http.post("http://192.168.43.78:3000/buscarPessoaClicada",
 			{ params: {
 						"email": email}
 						})
@@ -253,7 +253,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 	$scope.adicionarPessoa = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/adicionarPessoa",
+		$http.post("http://192.168.43.78:3000/adicionarPessoa",
 			{ params: {
 				"userEmail": $scope.session.email,
 				"relacao_para": $rootScope.rootScopeEmailPessoa
@@ -340,7 +340,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			});
 		}
 		else {
-			$http.post("http://172.17.0.13:3000/buscarLivro",
+			$http.post("http://192.168.43.78:3000/buscarLivro",
 				{ params: {
 							"textoBusca": textoBusca,
 							"selecao": selecao,
@@ -363,7 +363,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 
 	$scope.buscarLivroClicado = function(idLivro, idLivroUXL){
-		$http.post("http://172.17.0.13:3000/buscarLivroClicado",
+		$http.post("http://192.168.43.78:3000/buscarLivroClicado",
 			{ params: {
 				"id": idLivro,
 				"idUXL": idLivroUXL
@@ -392,7 +392,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 	$scope.adquirirLivro = function(id, idLivro){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/adquirirLivro",
+		$http.post("http://192.168.43.78:3000/adquirirLivro",
 			{ params: {
 						"userLoged": $scope.session.email,
 						"id": id,
@@ -407,7 +407,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 	$scope.adicionarDesejados = function(idLivro){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/adicionarDesejados",
+		$http.post("http://192.168.43.78:3000/adicionarDesejados",
 			{ params: {
 							"userLoged": $scope.session.email,
 							"livroId": idLivro}
@@ -513,7 +513,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			title: 'idLivro, userLogged',
 			template: idLivro + ", " + $scope.session.email
 		});*/
-		$http.post("http://172.17.0.13:3000/verificarDesejado",
+		$http.post("http://192.168.43.78:3000/verificarDesejado",
 			{ params: {
 						"idLivro": idLivro,
 						"userLogged": $scope.session.email
@@ -551,7 +551,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	$scope.buscarPessoa = function(textoBusca){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
 		if (textoBusca) {
-		$http.post("http://172.17.0.13:3000/buscarPessoa",
+		$http.post("http://192.168.43.78:3000/buscarPessoa",
 			{ params: {
 						"textoBusca": textoBusca,
 						"userLoged": $scope.session.email}
@@ -579,7 +579,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 
 	$scope.adicionarPessoa = function(){
 		//IonicLogin.adicionarPessoa($scope.session.email, $rootScope.rootScopeEmailPessoa);
-		$http.post("http://172.17.0.13:3000/adicionarPessoa",
+		$http.post("http://192.168.43.78:3000/adicionarPessoa",
 			{ params: {
 				//"relacao_de": userLoged,
 				"userEmail": $scope.session.email,
@@ -610,7 +610,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 		});
 	}
 	$scope.buscarPessoaClicada = function(email){
-		$http.post("http://172.17.0.13:3000/buscarPessoaClicada",
+		$http.post("http://192.168.43.78:3000/buscarPessoaClicada",
 			{ params: {
 						"email": email}
 						})
@@ -634,7 +634,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	$scope.buscarMeusLivros = function(){
 		$rootScope.rootScopeValorLivro = "";
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarMeusLivros",
+		$http.post("http://192.168.43.78:3000/buscarMeusLivros",
 			{ params: {
 						"email": $scope.session.email
 						}
@@ -668,7 +668,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			});
 		}
 		else {
-			$http.post("http://172.17.0.13:3000/pesquisarLivro",
+			$http.post("http://192.168.43.78:3000/pesquisarLivro",
 				{ params: {
 							"textoBusca": textoBusca,
 							"selecao": selecao,
@@ -693,7 +693,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 	$scope.buscarMeuLivroClicado = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarMeuLivroClicado",
+		$http.post("http://192.168.43.78:3000/buscarMeuLivroClicado",
 			{ params: {
 						"id": $rootScope.rootScopeIdLivroClicado,
 						"email": $scope.session.email}
@@ -737,7 +737,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	}
 	$scope.adicionarLivroAoPerfil = function(idLivro){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/adicionarLivroAoPerfil",
+		$http.post("http://192.168.43.78:3000/adicionarLivroAoPerfil",
 			{ params: {
 						"id": idLivro,
 						"email": $scope.session.email}
@@ -778,7 +778,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			okText: 'Sim'
 		}).then(function(res) {
 			if(res) {
-				$http.post("http://172.17.0.13:3000/removerLivro",
+				$http.post("http://192.168.43.78:3000/removerLivro",
 					{ params: {
 								"id": idLivro,
 								"email": $scope.session.email}
@@ -869,7 +869,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			});
 		}
 		else {
-			$http.post("http://172.17.0.13:3000/buscarPontoEncontro",
+			$http.post("http://192.168.43.78:3000/buscarPontoEncontro",
 				{ params: {
 							"textoBusca": textoBusca,
 							"selecao": selecao}
@@ -922,7 +922,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 				template: 'Doar'
 			});
 			$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-			$http.post("http://172.17.0.13:3000/finalizarAcao",
+			$http.post("http://192.168.43.78:3000/finalizarAcao",
 				{ params: {
 							"email": $scope.session.email,
 							"livro": $rootScope.rootScopeIdLivroClicado,
@@ -1048,7 +1048,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			title: 'livro, poe',
 			template: livro + ', ' + poe
 		});
-		/*$http.post("http://172.17.0.13:3000/acaoFinalizarInfoLivro",
+		/*$http.post("http://192.168.43.78:3000/acaoFinalizarInfoLivro",
 			{ params: {
 						"livro": livro,}
 						})
@@ -1059,7 +1059,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 			.error(function(response) {
 									 $ionicLoading.hide();
 						});
-			$http.post("http://172.17.0.13:3000/acaoFinalizarInfoPoe",
+			$http.post("http://192.168.43.78:3000/acaoFinalizarInfoPoe",
 				{ params: {
 							"poe": poe,}
 							})
@@ -1373,7 +1373,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 	    template: 'Chegou metodo enviar foto.'
 	  });
 
-	  $http.post("http://172.17.0.13:3000/enviarfoto",
+	  $http.post("http://192.168.43.78:3000/enviarfoto",
 	    { params: {
 	      "userLoged":$scope.session.email,
 	      "foto": $rootScope.rootScopeFoto}
@@ -1447,7 +1447,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 
       $rootScope.email = $scope.data.email;
 
-      $http.post("http://172.17.0.13:3000/resetpassword",
+      $http.post("http://192.168.43.78:3000/resetpassword",
             { params: { action: "generateResetCode", email: $scope.data.email}})
               .success(function(response) {
               if ( response == "error" ){
@@ -1477,7 +1477,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 
       $rootScope.email = $scope.data.email;
 
-      $http.post("http://172.17.0.13:3000/resetpassword",
+      $http.post("http://192.168.43.78:3000/resetpassword",
             { params: { action: "setNewPassword", email: $scope.data.email,
                         token: $scope.data.token, password: $scope.data.password} })
               .success(function(response) {
@@ -1536,7 +1536,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
       $rootScope.email = $scope.data.email;
 
 
-      $http.post("http://172.17.0.13:3000/validarEmail",
+      $http.post("http://192.168.43.78:3000/validarEmail",
             { params: { email: $scope.data.email,
                         token: $scope.data.token} })
               .success(function(response) {
@@ -1609,7 +1609,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 
                   $scope.user.foto = "http://graph.facebook.com/"+"{{user.id}}"+"/picture?width=270&height=270";
 
-											 $http.post("http://172.17.0.13:3000/validaLogin",
+											 $http.post("http://192.168.43.78:3000/validaLogin",
 											 			{ params: { email: $scope.user.email,
 											 									nome: $scope.user.name} })
 											 				.success(function(response) {
@@ -1693,7 +1693,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
         {
             var sesh = JSON.parse(window.localStorage['session']) ;
 
-              $http.post("http://172.17.0.13:3000/checkSession",
+              $http.post("http://192.168.43.78:3000/checkSession",
                 { params: { "session": JSON.stringify(sesh)}})
                   .success(function(response) {
                    if ( response == "error" || response == "LOGIN_FAIL" ){
@@ -1724,7 +1724,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 
 	$scope.session = JSON.parse( window.localStorage['session']) ;
 
-			 $http.post("http://172.17.0.13:3000/publicacao",
+			 $http.post("http://192.168.43.78:3000/publicacao",
 			       { params: {
 			         "userLoged": $scope.session.email,
 			         "userpublicacao":$scope.data.comentario}
@@ -1752,7 +1752,7 @@ $scope.buscarPublicacoes = function(){
 
 $scope.session = JSON.parse( window.localStorage['session']) ;
 
-$http.post("http://172.17.0.13:3000/buscarPublicacoes",
+$http.post("http://192.168.43.78:3000/buscarPublicacoes",
 			{ params: {
 				"userLoged": $scope.session.email}
 			})
@@ -1779,7 +1779,7 @@ $http.post("http://172.17.0.13:3000/buscarPublicacoes",
 
 }
 $scope.like = function(id){
-	$http.post("http://172.17.0.13:3000/like",
+	$http.post("http://192.168.43.78:3000/like",
 				{ params: {
 					"userLoged": $scope.session.email,
 					"id": id}
@@ -1795,7 +1795,7 @@ $scope.like = function(id){
 }
 
 $scope.buscarLikes = function(id){
-	$http.post("http://172.17.0.13:3000/buscarLikes",
+	$http.post("http://192.168.43.78:3000/buscarLikes",
 				{ params: {
 					"id": id}
 				})
@@ -1964,7 +1964,7 @@ $scope.buscarLikes = function(id){
 		$state.go('menu.livrando_conversas_amigos');
 	}
 	$scope.buscarAmigos = function() {
-		$http.post("http://172.17.0.13:3000/buscarAmigo",
+		$http.post("http://192.168.43.78:3000/buscarAmigo",
 			{ params: {
 						"userEmail": $scope.session.email
 						}
@@ -2481,7 +2481,7 @@ $scope.buscarLikes = function(id){
 
 	$scope.buscarLivrosDesejados = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarLivrosDesejados",
+		$http.post("http://192.168.43.78:3000/buscarLivrosDesejados",
 			{ params: {
 						"email": $scope.session.email
 								}
@@ -2505,7 +2505,7 @@ $scope.buscarLikes = function(id){
 			okText: 'Sim'
 		}).then(function(res) {
 			if(res) {
-				$http.post("http://172.17.0.13:3000/removerDesejado",
+				$http.post("http://192.168.43.78:3000/removerDesejado",
 					{ params: {
 						"userLogged": $scope.session.email,
 						"idLivro": idLivro
@@ -2528,7 +2528,7 @@ $scope.buscarLikes = function(id){
 
 	$scope.buscarMeusLivrosDoar = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarMeusLivrosDoar",
+		$http.post("http://192.168.43.78:3000/buscarMeusLivrosDoar",
 			{ params: {
 						"email": $scope.session.email}
 						})
@@ -2573,7 +2573,7 @@ $scope.buscarLikes = function(id){
 			template: $rootScope.rootScopeArray
 		});*/
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/seguinteDoar",
+		$http.post("http://192.168.43.78:3000/seguinteDoar",
 			{ params: {
 						"email": $scope.session.email,
 						"array": $rootScope.rootScopeArray,
@@ -2620,7 +2620,7 @@ $scope.buscarLikes = function(id){
 		$state.go('menu.livrando_doar_ponto_encontro_pesquisa');
 	}
 	$scope.buscarPontoEncontro = function(textoBusca, selecao){
-		$http.post("http://172.17.0.13:3000/buscarPontoEncontro",
+		$http.post("http://192.168.43.78:3000/buscarPontoEncontro",
 			{ params: {
 						"textoBusca": textoBusca,
 						"selecao": selecao}
@@ -2646,7 +2646,7 @@ $scope.buscarLikes = function(id){
 
 	$scope.buscarMeusLivrosEmprestar = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarMeusLivrosEmprestar",
+		$http.post("http://192.168.43.78:3000/buscarMeusLivrosEmprestar",
 			{ params: {
 						"email": $scope.session.email}
 						})
@@ -2678,7 +2678,7 @@ $scope.buscarLikes = function(id){
 	}
 	$scope.seguinteEmprestar = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/seguinteEmprestar",
+		$http.post("http://192.168.43.78:3000/seguinteEmprestar",
 			{ params: {
 						"email": $scope.session.email,
 						"array": $rootScope.rootScopeArrayEmprestar,
@@ -2727,7 +2727,7 @@ $scope.buscarLikes = function(id){
 		$state.go('menu.livrando_emprestar_ponto_encontro');
 	}
 	$scope.buscarPontoEncontro = function(textoBusca, selecao){
-		$http.post("http://172.17.0.13:3000/buscarPontoEncontro",
+		$http.post("http://192.168.43.78:3000/buscarPontoEncontro",
 			{ params: {
 						"textoBusca": textoBusca,
 						"selecao": selecao}
@@ -2749,7 +2749,7 @@ $scope.buscarLikes = function(id){
 
 	$scope.buscarMeusLivrosVender = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarMeusLivrosVender",
+		$http.post("http://192.168.43.78:3000/buscarMeusLivrosVender",
 			{ params: {
 						"email": $scope.session.email}
 						})
@@ -2787,7 +2787,7 @@ $scope.buscarLikes = function(id){
 	$scope.seguinteVender = function(){
 
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/seguinteVender",
+		$http.post("http://192.168.43.78:3000/seguinteVender",
 			{ params: {
 						"email": $scope.session.email,
 						"array": $rootScope.rootScopeArrayVender,
@@ -2834,7 +2834,7 @@ $scope.buscarLikes = function(id){
 		$state.go('menu.livrando_vender_ponto_encontro_pesquisa');
 	}
 	$scope.buscarPontoEncontro = function(textoBusca, selecao){
-		$http.post("http://172.17.0.13:3000/buscarPontoEncontro",
+		$http.post("http://192.168.43.78:3000/buscarPontoEncontro",
 			{ params: {
 						"textoBusca": textoBusca,
 						"selecao": selecao}
@@ -2859,7 +2859,7 @@ $scope.buscarLikes = function(id){
 
 	$scope.buscarMeusLivrosTrocar = function(){
 	  $scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-	  $http.post("http://172.17.0.13:3000/buscarMeusLivrosTrocar",
+	  $http.post("http://192.168.43.78:3000/buscarMeusLivrosTrocar",
 	    { params: {
 	          "email": $scope.session.email}
 	          })
@@ -2890,7 +2890,7 @@ $scope.buscarLikes = function(id){
 	$scope.seguinteTrocar = function(){
 
 	  $scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-	  $http.post("http://172.17.0.13:3000/seguinteTrocar",
+	  $http.post("http://192.168.43.78:3000/seguinteTrocar",
 	    { params: {
 	          "email": $scope.session.email,
 	          "array": $rootScope.rootScopeArrayTrocar,
@@ -2937,7 +2937,7 @@ $scope.buscarLikes = function(id){
 	  $state.go('menu.livrando_trocar_ponto_encontro_pesquisa');
 	}
 	$scope.buscarPontoEncontro = function(textoBusca, selecao){
-	  $http.post("http://172.17.0.13:3000/buscarPontoEncontro",
+	  $http.post("http://192.168.43.78:3000/buscarPontoEncontro",
 	    { params: {
 	          "textoBusca": textoBusca,
 	          "selecao": selecao}
@@ -2992,7 +2992,7 @@ $scope.buscarLikes = function(id){
 			title: 'Alerta',
 			template: 'Os dados foram alterados!.'
 		});
-    $http.post("http://172.17.0.13:3000/editarperfil",
+    $http.post("http://192.168.43.78:3000/editarperfil",
       { params: {
         "Usernome": $scope.data.nome,
         "UserDNascimento": $scope.data.dataNascimento,
