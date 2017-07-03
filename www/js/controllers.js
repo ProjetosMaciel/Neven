@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['firebase','ngOpenFB'])
 //***********************************************teste**************git
-///*********
+
 .controller('MeusAmigosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
 	$scope.$on('$ionicView.enter', function(e) {
