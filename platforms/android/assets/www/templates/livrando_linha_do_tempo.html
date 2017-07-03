@@ -1,0 +1,47 @@
+<ion-view view-title="Linha do tempo" hide-back-button="true" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding" ng-init="buscarPublicacoes()">
+
+  <div position="absolute" >
+  <div >
+
+      <label class="item item-input">
+        <textarea rows="4" placeholder="Faça aqui seu comentário..." ng-model="data.comentario"></textarea>
+      </label>
+  </div>
+  <div width="100%" align="right">
+    <button class="button  button-positive" ng-click="publicar()">
+      Publicar
+    </button>
+  </div>
+</div>
+<ion-refresher
+    pulling-text="Puxe para atualizar..."
+    on-refresh="buscarPublicacoes()">
+  </ion-refresher>
+<ion-list ng-repeat="publicacao in publicacoes">
+  <div class="list card">
+
+    <div class="item item-avatar">
+      <img src="img/user.png" ng-src="{{publicacao.foto}}">
+      <h2>{{publicacao.username}}</h2>
+      <p>01/07/2017</p>
+    </div>
+
+    <div class="item item-body">
+
+      <p>
+        {{publicacao.comentario}}
+      </p>
+      <!--<p>
+        <a ng-init="buscarLikes(publicacao.id)" ng-click="like(publicacao.id)" class="subdued">{{qtdLikes}} Like</a>
+        <a class="subdued">5 Comments</a>
+      </p>-->
+    </div>
+
+  </div>
+</ion-list>
+
+
+
+  </ion-content>
+</ion-view>

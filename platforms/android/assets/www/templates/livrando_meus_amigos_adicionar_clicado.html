@@ -1,0 +1,36 @@
+<ion-view view-title="Pessoa">
+  <!--<ion-nav-buttons side="right">
+    <button class="button ion-plus-round" icon-only ng-click="adicionarPessoa()"></button>
+  </ion-nav-buttons>-->
+  <ion-content class="padding">
+    <div class="centerDiv" ng-init="buscarPessoaClicada(rootScopeEmailPessoa)">
+
+  		<h2>{{pessoas.username}}</h2>
+  		<img class="foto-perfil" src="img/user.png" ng-src="{{pessoas.foto}}">
+      <div width="100%" align="right">
+        <button class="button  button-positive"  ng-click="adicionarPessoa()">Adicionar</button>
+      </div>
+      <ion-list  class="manual-list-fullwidth" style="text-align:left;">
+        <ion-item class="item-icon-left" >
+          <i class="icon ion-android-home"></i>Cidade: {{pessoas.cidade}}
+        </ion-item>
+
+          <ion-item class="item-icon-left" >
+            <i class="icon ion-android-calendar"></i> Data de nascimento: {{pessoas.DNascimento}}
+          </ion-item>
+
+          <!--  <ion-item class="item-icon-left" >
+              <i class="icon ion-android-calendar" moment().format('dd/MM/yyyy');></i> Data de nascimento: {{session.DNascimento}}
+            </ion-item> -->
+
+      </br>
+      <p>Descrição do usuário:</p>
+      <ion-item class="item-text-wrap" >
+      {{pessoas.mensagem}}
+    </ion-item>
+  </ion-list>
+  <br><br><br><br><br>
+
+    </div>
+  </ion-content>
+</ion-view>

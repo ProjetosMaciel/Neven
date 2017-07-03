@@ -1,0 +1,36 @@
+<ion-view view-title="Procurar pessoas" hide-back-button="true" can-swipe-back="false">
+  <ion-content class="padding">
+
+	<div class="centerDiv">
+    <div class="list">
+      <div class="item item-input-inset">
+
+          <label class="item-input-wrapper" style="vertical-align: middle;">
+              <input type="text" placeholder="Digite aqui..." ng-model="textoBusca">
+          </label>
+
+        <button class="button button-positive ion-android-search" style="vertical-align: middle;" ng-click="buscarPessoa(textoBusca)"></button>
+      </div>
+    </div>
+
+    <br>
+		<ion-list ng-repeat="pessoa in pessoas">
+			<ion-item style="text-align:left;" ng-click="abrirPessoaClicada(pessoa.email)">
+				<table>
+					<tr>
+						<td>
+							<ion-thumbnail item-left>
+								<img class="foto-perfil-little" width="75" height="75" src="img/perry.png">
+							</ion-thumbnail>
+						</td>
+						<td style="padding-left: 10px;vertical-align: middle;">
+							<h2>{{pessoa.username}}</h2>
+						</td>
+					</tr>
+				</table>
+			</ion-item>
+		</ion-list>
+    <br><br>
+	</div>
+  </ion-content>
+</ion-view>

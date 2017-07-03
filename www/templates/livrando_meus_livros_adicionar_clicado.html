@@ -1,0 +1,58 @@
+<ion-view view-title="Adicionar">
+	<!--<ion-nav-buttons side="right">
+		<button class="button ion-plus-round" icon-only ng-click="adicionarLivroAoPerfil(rootScopeIdLivroClicado)"></button>
+	</ion-nav-buttons>-->
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarLivroAdicionarClicado()">
+
+			<!--<button ion-button color="light" icon-only ng-click="">
+				<ion-icon name="add"></ion-icon>
+				Remover livro
+			</button>
+
+			<button ion-button color="light" icon-only ng-click="adicionarLivroAoPerfil(rootScopeIdLivroClicado)">
+				<ion-icon name="add"></ion-icon>
+				Adicionar livro
+			</button>-->
+
+			<h2>{{livroClicado.livnome}}</h2>
+			<ion-list>
+				<img height="272" ng-src="{{livroClicado.livfoto}}">
+				<div width="100%" align="right">
+			    <button class="button  button-positive" ng-click="adicionarLivroAoPerfil(rootScopeIdLivroClicado)">
+			      Adicionar
+			    </button>
+			  </div>
+			  <!--<ion-list style="text-align:left;">
+			    <ion-item>
+			      <ion-icon name="home"></ion-icon>
+			      <p>Autor: {{livroClicado.livautor}}</p>
+			      <p>Editora: {{livroClicado.liveditora}}</p>
+			      <p>Ano: {{livroClicado.livano}}</p>
+						<p>Gênero: {{livroClicado.livgenero}}</p>
+			    </ion-item>
+			  </ion-list>-->
+				<br>
+				<table style="text-align:left;border-collapse: collapse;width: 100%;">
+
+					<tr style="background-color: #dddddd;">
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Autor</td>
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livautor}}</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Editora</td>
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.liveditora}}</td>
+					</tr>
+					<tr style="background-color: #dddddd;">
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Ano</td>
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livano}}</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Gênero</td>
+						<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livgenero}}</td>
+					</tr>
+				</table>
+
+		</div>
+	</ion-content>
+</ion-view>

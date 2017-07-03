@@ -1,0 +1,31 @@
+<ion-view view-title="Adicionar">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarLivroAdicionarClicado()">
+
+			<h2>{{livroClicado.livnome}}</h2>
+			<ion-list>
+				<img height="272" ng-src="{{livroClicado.livfoto}}">
+				<div width="100%" align="right">
+			    <button class="button button-positive" ng-click="adicionarLivroAoPerfilLivrarias(rootScopeIdLivroClicado, url)">
+			      Adicionar
+			    </button>
+			  </div>
+			  <ion-list style="text-align:left;">
+			    <ion-item>
+			      <ion-icon name="home"></ion-icon>
+			      <p>Autor: {{livroClicado.livautor}}</p>
+			      <p>Editora: {{livroClicado.liveditora}}</p>
+			      <p>Ano: {{livroClicado.livano}}</p>
+			    </ion-item>
+			  </ion-list>
+				<br>
+				<div>
+					<p style="text-align: left;">Informe aqui a URL do livro no site oficial:</p>
+				 <label class="item item-input">
+					 <input type="text" placeholder="URL..." ng-model="url">
+				 </label>
+			 </div>
+
+		</div>
+	</ion-content>
+</ion-view>

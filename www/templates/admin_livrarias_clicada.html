@@ -1,0 +1,40 @@
+<ion-view view-title="Livraria" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarLivrariaClicada()">
+
+			<h2>{{livraria.username}}</h2>
+			<img class="foto-perfil" src="img/livraria.png" ng-src="" ng-click="">
+			<!--<div width="100%" align="right">
+	      <button class="button ion-trash-a button-clear button-dark" ng-click="removerLivraria(rootScopeLivrariaClicada)">
+	        Remover
+	      </button>
+	    </div>-->
+			<table width="100%" style="padding: 10px;">
+	      <tr>
+					<td width="50%">
+						<button width="100%" style="margin-right: 5px;" class="button button-positive button-block" ng-click="editarLivraria()">
+							Editar
+						</button>
+					</td>
+					<td width="50%">
+						<button width="100%" style="margin-left: 5px;" class="button button-positive button-block" ng-click="removerLivraria(rootScopeLivrariaClicada)">
+							Remover
+						</button>
+					</td>
+				</tr>
+			</table>
+		  <ion-list style="text-align:left;">
+		    <ion-item>
+					<table style="width:100%;">
+						<tr>
+							<td class="item-text-wrap">
+					      <p>E-mail: {{livraria.email}}</p>
+							</td>
+						</tr>
+					<table>
+		    </ion-item>
+		  </ion-list>
+
+		</div>
+	</ion-content>
+</ion-view>

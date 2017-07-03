@@ -1,0 +1,33 @@
+<ion-view view-title="Histórico" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarHistorico()">
+
+			<br>
+			<ion-list ng-repeat="livro in livros | filter: searchText">
+				<ion-item class="item-text-wrap">
+					<table>
+						<tr>
+							<td rowspan="2" style="padding-right: 10px;vertical-align: middle;">
+								<ion-thumbnail item-left>
+									<img height="100" ng-src="{{livro.livfoto}}">
+								</ion-thumbnail>
+							</td>
+							<td height="50" style="vertical-align: bottom;text-align: left;">
+								<h2>Você fez um(a) {{livro.tipo}} do seu livro "{{livro.livnome}}" para {{livro.userDestinoEmail}}.</h2>
+								<!-- voce emprestou o livro harry potter para joao -->
+								<!-- voce pegpu emprestado o livro harry potter de joao -->
+							</td>
+						</tr>
+						<tr>
+							<td height="50" style="vertical-align: top;text-align: left;">
+								<p>Data: {{livro.createdAt}}</p>
+							</td>
+						</tr>
+					</table>
+				</ion-item>
+			</ion-list>
+			<br><br>
+
+		</div>
+	</ion-content>
+</ion-view>

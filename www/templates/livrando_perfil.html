@@ -1,0 +1,58 @@
+<ion-view view-title="Perfil" hide-back-button="true" cache-view="false">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+<div></div>
+	<div ng-init="atualizarPerfil()">
+
+    <h2 style="color:#000000;text-align:center;"><p>{{user.username}}</P></h2>
+
+        <div>
+          <img  src ="img/user.png" ng-src="{{user.foto}}" class="foto-perfilU" ng-click="foto(user.id)">
+
+        </div>
+
+
+    <div width="100%" align="right" >
+      <button class="button button-positive" ng-class="{'facebook': idFacebook == 'facebook'}" ng-click="EditarPerfil()">
+        Editar
+      </button>
+    </div>
+    <br>
+    <div class="show-list-numbers-and-dots">
+      </div>
+        <ion-list  class="manual-list-fullwidth">
+          <ion-item class="item-icon-left" >
+            <i class="icon ion-android-home"></i>Cidade: {{user.cidade}}
+          </ion-item>
+
+            <ion-item class="item-icon-left" >
+              <i class="icon ion-android-calendar"></i> Data de nascimento: {{user.DNascimento}}
+
+            </ion-item>
+
+            <!--  <ion-item class="item-icon-left" >
+                <i class="icon ion-android-calendar" moment().format('dd/MM/yyyy');></i> Data de nascimento: {{session.DNascimento}}
+              </ion-item> -->
+
+           <ion-item class="item-icon-left" >
+             <i class="icon ion-email"></i> E-mail: {{user.email}}
+           </ion-item>
+          </ion-list>
+        </br>
+        <p >Descrição do usuário:</p>
+        <ion-item class="item-text-wrap" >
+        {{user.mensagem}}
+      </ion-item>
+        </ion-list>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+  </ion-content>
+
+</ion-view>

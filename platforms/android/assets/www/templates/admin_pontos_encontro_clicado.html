@@ -1,0 +1,44 @@
+<ion-view view-title="Ponto de encontro">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarPontoEncontroClicado()">
+
+			<h2>{{poe.poenome}}</h2>
+			<!--<img height="150" ng-src="">
+			<div width="100%" align="right">
+	      <button class="button ion-trash-a button-clear button-dark" ng-click="removerPontoEncontro(rootScopePontoEncontroClicado)">
+	        Remover
+	      </button>
+	    </div>-->
+			<table width="100%" style="padding: 10px;">
+				<tr>
+					<td width="50%">
+						<button width="100%" style="margin-right: 5px;" class="button button-positive button-block"
+						ng-click="removerPoe()">
+						Remover
+						</button>
+					</td>
+					<td width="50%">
+						<button width="100%" style="margin-left: 5px;" class="button button-positive button-block"
+						ng-click="editarPoe()">
+						Editar
+						</button>
+					</td>
+				</tr>
+			</table>
+		  <ion-list style="text-align:left;">
+		    <ion-item>
+					<table style="width:100%;">
+						<tr>
+							<td class="item-text-wrap">
+					      <p>{{poe.poerua}}, {{poe.poenumero}} - {{poe.poebairro}}, {{poe.poecidade}} - {{poe.poeestado}}</p>
+							</td>
+						</tr>
+					<table>
+		    </ion-item>
+		  </ion-list>
+
+
+
+		</div>
+	</ion-content>
+</ion-view>

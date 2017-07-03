@@ -1,0 +1,23 @@
+<ion-view view-title="Pessoa">
+  <!--<ion-nav-buttons side="right">
+    <button class="button ion-plus-round" icon-only ng-click="adicionarPessoa()"></button>
+  </ion-nav-buttons>-->
+  <ion-content class="padding">
+    <div class="centerDiv" ng-init="buscarPessoaClicada(rootScopeAmigoDeAmgio)">
+
+  		<h2>{{pessoas.username}}</h2>
+  		<img class="foto-perfil" src="img/perry.png">
+      <div width="100%" align="right">
+        <button class="button ion-android-add button-clear button-dark" ng-click="adicionarPessoa(rootScopeAmigoDeAmgio)">
+          Adicionar
+        </button>
+      </div>
+  		<ion-list style="text-align:left;">
+  			<ion-item>
+  				E-mail: {{pessoas.email}}
+  			</ion-item>
+  		</ion-list>
+
+    </div>
+  </ion-content>
+</ion-view>

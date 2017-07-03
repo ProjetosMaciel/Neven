@@ -1,0 +1,54 @@
+<ion-view view-title="Procurar livro" hide-back-button="true" can-swipe-back="false">
+  <ion-content class="padding">
+    <div class="centerDiv">
+
+      <label class="item item-input item-select">
+        <div class="input-label">Filtre aqui</div>
+        <select ng-model="selecao">
+          <option value="doacao">Doação</option>
+          <option value="emprestimo">Empréstimo</option>
+          <option value="troca">Troca</option>
+          <option value="venda">Venda</option>
+          <option value="livrarias">Livrarias</option>
+        </select>
+      </label>
+      <br>
+      <table width="100%">
+		 	 <tr>
+				 <td>
+           <label class="item item-input" style="vertical-align: middle;">
+               <i class="icon ion-ios-search placeholder-icon"></i>
+               <input type="search" placeholder="Digite aqui..." ng-model="textoBusca">
+           </label>
+				 <td>
+				 <td>
+		 		 	<button class="button button-positive ion-android-search" style="vertical-align: middle;" ng-click="buscarLivro(textoBusca, selecao)"></button>
+				 <td>
+			 </tr>
+		 </table>
+
+    	<ion-list ng-repeat="livro in livros">
+    		<ion-item ng-click="abrirLivro(livro.livroId, livro.id)">
+          <table>
+						<tr>
+							<td rowspan="2" style="padding-right: 10px;vertical-align: middle;">
+								<ion-thumbnail item-left>
+									<img height="100" ng-src="{{livro.livfoto}}">
+								</ion-thumbnail>
+							</td>
+							<td height="50" style="vertical-align: bottom;text-align: left;">
+								<h2>{{livro.livnome}}</h2>
+							</td>
+						</tr>
+						<tr>
+							<td height="50" style="vertical-align: top;text-align: left;">
+								<p>{{livro.livautor}}</p>
+							</td>
+						</tr>
+					</table>
+    		</ion-item>
+    	</ion-list>
+
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="Pontos de encontro" hide-back-button="true" cache-view="false">
+	<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarPontosEncontro()">
+
+			<p>Pontos de encontro cadastrados:</p>
+
+			<div width="100%" align="right">
+	      <button class="button button-positive" ng-click="adicionarPontoEncontro()">
+	        Cadastrar
+	      </button>
+	    </div>
+			<br>
+			<label class="item item-input">
+				<input type="text" placeholder="Filtrar..." ng-model="searchText.username">
+			</label>
+			<ion-list ng-repeat="poe in pontosencontro | filter: searchText">
+				<ion-item ng-click="pontoEncontroClicado(poe.id)">
+					<table>
+						<tr>
+							<td rowspan="2" style="padding-right: 10px;vertical-align: middle;">
+								<ion-thumbnail item-left>
+									<img height="100" src="img/ponto_encontro.png">
+								</ion-thumbnail>
+							</td>
+							<td class="item-text-wrap" height="50" style="vertical-align: bottom;text-align: left;">
+								<h2>{{poe.poenome}}</h2>
+							</td>
+						</tr>
+						<tr>
+							<td class="item-text-wrap"  height="50" style="vertical-align: top;text-align: left;">
+								<p>{{poe.poerua}}, {{poe.poenumero}} - {{poe.poebairro}}, {{poe.poecidade}} - {{poe.poeestado}}</p>
+							</td>
+						</tr>
+					</table>
+				</ion-item>
+			</ion-list>
+			<br><br>
+
+		</div>
+	</ion-content>
+</ion-view>

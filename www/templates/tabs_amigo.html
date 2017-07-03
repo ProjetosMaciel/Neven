@@ -1,0 +1,16 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-positive tabs-striped">
+
+  <ion-tab title="Contacts" icon-on="ion-android-happy" icon-off="ion-android-happy" href="#/tab_amigo/livrando_amigo">
+    <ion-nav-view name="tab_amigo-livrando_amigo"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Meus amigos" icon-on="ion-ios-book" icon-off="ion-ios-book" href="#/tab_amigo/livrando_amigo_livros">
+    <ion-nav-view name="tab_amigo-livrando_amigo_livros"></ion-nav-view>
+  </ion-tab>
+  
+</ion-tabs>

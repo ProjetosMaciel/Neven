@@ -1,0 +1,26 @@
+<ion-view view-title="Vender" hide-back-button="true" can-swipe-back="false" cache-view="false">
+  <ion-nav-buttons side="right">
+    <button class="button ion-plus-round" icon-only ng-click="irParaAdicionarLivroVender()"></button>
+    <!--<button class="button ion-android-arrow-forward icon-right" icon-only ng-click="seguinteVender()"></button>-->
+  </ion-nav-buttons>
+  <ion-content class="padding">
+
+     <p style="text-align: center;">Abaixo estão os livros que você irá vender:</p>
+
+     <!-- grid -->
+     <div class="row" ng-repeat="item in rootScopeArrayVender track by $index" ng-if="$index % 5 == 0">
+       <div class="col-xs-4 item-box"
+       ng-repeat="i in [$index, $index + 1, $index + 2, $index + 3, $index + 4]"
+       ng-if="rootScopeArrayVender[i] != null">
+        <div style="width:64px;height:100px;">{{rootScopeArrayVender[i]}}</div>
+      </div>
+    </div>
+  </ion-content>
+  <!-- tab -->
+  <div class="tabs tabs-icon-top tabs-positive">
+    <a class="tab-item">
+      <i class="icon ion-android-arrow-forward" ng-click="irParaAdicionarPontoEncontroVender()"></i>
+      Próximo
+    </a>
+  </div>
+</ion-view>

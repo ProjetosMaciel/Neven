@@ -1,0 +1,28 @@
+<ion-view view-title="Notificações" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding">
+
+  <div class="centerDiv" ng-init="buscarNotificacoesLivros()">
+	<p>Notificações:</p>
+
+  <ion-list ng-repeat="r in result">
+		<ion-item style="text-align:left;" ng-click="mostrarNotificacao(r.id, r.ltuserAdquirirEmail, r.livnome, r.status, r.livroId, r.pontoencontroId)" class="item-text-wrap">
+			<table>
+				<tr>
+          <td>
+            <ion-thumbnail item-left>
+              <img height="100" ng-src="{{r.livfoto}}">
+            </ion-thumbnail>
+          </td>
+					<td style="padding-left: 10px;vertical-align: middle;">
+						<p><b>{{r.ltuserAdquirirEmail}}</b> quer seu livro <b>{{r.livnome}}</b> que está disponível para {{r.status}}.</p>
+            <!--Joao quer seu livro Harry Potter emprestado-->
+					</td>
+				</tr>
+			</table>
+		</ion-item>
+	</ion-list>
+
+  </div>
+
+  </ion-content>
+</ion-view>

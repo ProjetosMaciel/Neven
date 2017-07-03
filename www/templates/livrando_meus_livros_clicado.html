@@ -1,0 +1,107 @@
+<ion-view view-title="Livro" cache-view="false">
+	<!--<ion-nav-buttons side="right">
+		<button class="button ion-trash-a" icon-only ng-click="removerLivro(rootScopeIdLivroClicado)"></button>
+	</ion-nav-buttons>-->
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarMeuLivroClicado()">
+
+			<!--<button ion-button color="light" icon-only ng-click="">
+				<ion-icon name="add"></ion-icon>
+				Remover livro
+			</button>
+
+			<button ion-button color="light" icon-only ng-click="adicionarLivroAoPerfil(rootScopeIdLivroClicado)">
+				<ion-icon name="add"></ion-icon>
+				Adicionar livro
+			</button>-->
+
+			<h2>{{livroClicado.livnome}}</h2>
+			<img height="272" ng-src="{{livroClicado.livfoto}}">
+			<table width="100%" style="padding: 10px;">
+	      <tr>
+					<td width="50%">
+						<button width="100%" style="margin-right: 5px;" class="button button-positive button-block"
+						ng-click="removerLivro(rootScopeIdLivroClicado, status, userEmprestado)"
+						ng-class="{'meus_livros_botao_devolver': status == 'Emprestado de',
+						'meus_livros_botao_devolver_dono': status == 'Emprestado para',
+					 	'meus_livros_botao_remover': status == 'Disponível',
+					 	'meus_livros_botao_doacao': status == 'Lista de doação',
+				 		'meus_livros_botao_emprestimo': status == 'Lista de empréstimo',
+						'meus_livros_botao_troca': status == 'Lista de troca',
+						'meus_livros_botao_venda': status == 'Lista de venda'}">
+
+			      </button>
+					</td>
+					<td width="50%">
+						<button width="100%" style="margin-left: 5px;" class="button button-positive button-block"
+						ng-click="abrirAcoes(rootScopeIdLivroClicado)"
+						ng-class="{'meus_livros_botao_me_livrar_emprestado': status == 'Emprestado de',
+						'meus_livros_botao_me_livrar_disponivel': status != 'Emprestado de'}">
+
+			      </button>
+					</td>
+				</tr>
+	    </table>
+			<!--<div class="button-bar">
+			  <a class="button icon-right ion-trash-a button-positive" ng-click="removerLivro(rootScopeIdLivroClicado)">Remover</a>
+			  <a class="button icon-right ion-android-share button-positive" ng-click="">Me livrar</a>
+			</div>-->
+		 <!-- <ion-list style="text-align:left;">
+		    <ion-item>
+		      <ion-icon name="home"></ion-icon>
+
+		      <p>Autor: {{livroClicado.livautor}}</p>
+		      <p>Editora: {{livroClicado.liveditora}}</p>
+		      <p>Ano: {{livroClicado.livano}}</p>
+					<p>Gênero: {{livroClicado.livgenero}}</p>
+					<p>Status: {{status}} {{userEmprestado}}</p>
+					<p ng-class="{'reais': status == 'lista de venda'}">
+						{{livroClicado.valorVenda}}
+					</p>
+					<p ng-class="{'troca': status == 'lista de troca'}">
+						{{livroClicado.textoTroca}}
+					</p>
+		    </ion-item>
+		  </ion-list> -->
+			<br>
+			<table style="text-align:left;border-collapse: collapse;width: 100%;">
+
+				<tr style="background-color: #dddddd;">
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Autor</td>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livautor}}</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Editora</td>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.liveditora}}</td>
+				</tr>
+				<tr style="background-color: #dddddd;">
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Ano</td>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livano}}</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Gênero</td>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livgenero}}</td>
+				</tr>
+				<tr style="background-color: #dddddd;">
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Status</td>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+
+							{{status}} {{userEmprestado}}
+					</td>
+				</tr>
+				<tr>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;"		>
+						{{mais2}}
+					</td>
+					<td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+
+						{{mais1}}
+						{{livroClicado.valorVenda}}
+						{{livroClicado.textoTroca}}
+					</td>
+
+				</tr>
+			</table>
+		</div>
+	</ion-content>
+</ion-view>

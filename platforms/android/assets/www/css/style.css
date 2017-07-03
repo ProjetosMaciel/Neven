@@ -1,0 +1,311 @@
+/* Empty. Add your own CSS if you like */
+
+.centerDiv{
+  display: inline-block; width:100%; margin: 0 auto; padding: 0px; text-align: center;
+}
+.meusAmigosList{
+	text-align: left;
+}
+.meusAmigosAvatar{
+	height: 75px;
+    width: 75px;
+}
+.foto-perfil{
+
+	width: 180px;
+	border-radius: 100px;
+	top: 10px;
+
+
+	margin-bottom: 10px;
+	-webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+}
+.foto-perfil-little{
+  width: 60px;
+  border-radius: 100px;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+}
+.foto-perfil-menu{
+  width: 125px;
+  border-radius: 100px;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+}
+.messages {
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-align-content: center !important;
+  -ms-flex-line-pack: center !important;
+  align-content: center !important;
+  -webkit-box-align: center !important;
+  -moz-box-align: center !important;
+  -webkit-align-items: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  margin-bottom: 20px !important;
+}
+.messages .message {
+  -webkit-box-flex: 1 !important;
+  -moz-box-flex: 1 !important;
+  -webkit-flex: 1 1 auto !important;
+  -ms-flex: 1 1 auto !important;
+  flex: 1 1 auto !important;
+  padding: 10px !important;
+  -webkit-transition: all 250ms ease-in-out !important;
+  transition: all 250ms ease-in-out !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+.span {
+  background: #C7C7CC !important;
+
+  color: black !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  max-width: 240px !important;
+}
+.messages.other .message {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  text-align: right !important;
+}
+.messages.other span {
+  color: white !important;
+  background-color: #007AFF !important;
+}
+.scroll {
+  padding: 10px 0 50px !important;
+}
+#divLogin {
+  position: relative;
+  margin-top: 50%;
+  margin-bottom: 50%;
+}
+.custom-icon-heart-grey {
+  font-size: 50px;
+  color: grey;
+}
+.custom-icon-heart-red {
+  font-size: 50px;
+  color: red;
+}
+.size-font {
+  font-size: 50px;
+}
+/* Css da camera /*/
+/* Empty. Add your own CSS if you like */
+
+.centerDiv{
+  display: inline-block; width:100%; margin: 0 auto; padding: 0px; text-align: center;
+}
+.image{
+	width: 100%;
+	border-radius: 5px;
+}
+.camera{
+position: fixed;
+top: 50%;
+left: 70%;
+background: #009587;
+color: #fff;
+margin-top: -60px;
+margin-left: -60px;
+font-size: 60px;
+width: 120px;
+height: 120px;
+padding: 15px;
+-webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+border-radius: 100px;
+border: 0px;
+}
+.camera2{
+position: fixed;
+top: 50%;
+left: 30%;
+background: #009587;
+color: #fff;
+margin-top: -60px;
+margin-left: -60px;
+font-size: 60px;
+width: 120px;
+height: 120px;
+padding: 15px;
+-webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+border-radius: 100px;
+border: 0px;
+}
+.camera :active{
+position: fixed;
+top: 50%;
+left: 50%;
+background: #1ca89a;
+color: #fff;
+margin-top: -60px;
+margin-left: -60px;
+font-size: 60px;
+width: 120px;
+height: 120px;
+padding: 15px;
+-webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+border-radius: 100px;
+border: 0px;
+}
+
+.add{
+position: fixed;
+right: 20px;
+padding: 6px;
+bottom: 315px;
+z-index: 30;
+color: aliceblue;
+font-size: 20px;
+background: #F34235;
+width: 40px;
+height: 40px;
+border-radius: 100px;
+border: 0px;
+-webkit-box-shadow: 0px 0px 5px 0px rgba(61, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 5px 0px rgba(61, 50, 50, 0.75);
+box-shadow:         0px 0px 5px 0px rgba(61, 50, 50, 0.75);
+}
+
+.add :active{
+  position: fixed;
+right: 20px;
+padding: 6px;
+bottom: 315px;
+z-index: 30;
+color: aliceblue;
+font-size: 20px;
+background: #ad5651;
+width: 40px;
+height: 40px;
+border-radius: 100px;
+border: 0px;
+-webkit-box-shadow: 0px 0px 5px 0px rgba(61, 50, 50, 0.75);
+-moz-box-shadow:    0px 0px 5px 0px rgba(61, 50, 50, 0.75);
+box-shadow:         0px 0px 5px 0px rgba(61, 50, 50, 0.75);
+}
+.foto-perfilU{
+	position: relative;
+	width: 180px;
+	border-radius: 100px;
+	top: 10px;
+	left: 50%;
+	margin-left: -90px;
+	margin-bottom: 10px;
+	-webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+}
+.foto-livra{
+  width: 180px;
+
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+    box-shadow:         0px 0px 3px 0px rgba(61, 50, 50, 0.75);
+}
+.menu-icons {
+  font-size: 25px;
+}
+.reais:before {
+  content: "R$ ";
+}
+.traco:before {
+  content: "-";
+}
+.troca:before {
+  content: "";
+}
+.valor:before {
+  content: "Valor";
+}
+.descricao:before {
+  content: "O que desejo";
+}
+.mais:before {
+  content: "Mais";
+}
+.valor_procurar_livro:before {
+  content: "Valor: ";
+}
+.reais_procurar_livro:before {
+  content: "R$ ";
+}
+.descricao_procurar_livro:before {
+  content: "Descrição da troca:";
+}
+.texto_livro_livraria_site:before {
+  content: "Ver no site";
+}
+.texto_livro_eu_quero:before {
+  content: "Eu quero";
+}
+.meus_livros_botao_remover:before {
+  content: "Remover";
+}
+.meus_livros_botao_devolver {
+  /*content: "Devolver";*/
+  visibility: hidden;
+  background-color: #ffffff;
+  color: #ffffff;
+}
+.meus_livros_botao_devolver_dono:before {
+  content: "Pegar de volta";
+}
+.meus_livros_botao_doacao:before {
+  content: "Remover da doação";
+}
+.meus_livros_botao_emprestimo:before {
+  content: "Remover do empréstimo";
+}
+.meus_livros_botao_troca:before {
+  content: "Remover da troca";
+}
+.meus_livros_botao_venda:before {
+  content: "Remover da venda";
+}
+.meus_livros_botao_me_livrar_emprestado {
+  /*content: "Devolver";*/
+  visibility: hidden;
+  background-color: #ffffff;
+  color: #ffffff;
+}
+.meus_livros_botao_me_livrar_emprestado_dono {
+  visibility: hidden;
+  background-color: #ffffff;
+  color: #ffffff;
+}
+.meus_livros_botao_me_livrar_disponivel:before {
+  content: "Me livrar";
+}
+.popup-body {
+  text-align: center;
+}
+.facebook {
+  visibility: hidden;
+  background-color: #ffffff;
+  color: #ffffff;
+}
+/*.facebook:before {
+  content: "";
+}*/

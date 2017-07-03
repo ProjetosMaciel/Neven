@@ -1,0 +1,25 @@
+<ion-menu [content]="conteudo">
+	<ion-header>
+		<ion-navbar color="primary">
+			<button ion-button menuToggle icon-only>
+				<ion-icon name='menu'></ion-icon>
+			</button>
+			<ion-title>Menu
+			</ion-title>
+		</ion-navbar>
+	</ion-header>
+	<ion-content>
+		<ion-list>
+			<button ion-item (click)="openPage(livrando_linha_do_tempo)" menuClose>Linha do tempo</button>
+			<button ion-item (click)="openPage(livrando_tabs)" menuClose>Perfil</button>
+			<button ion-item (click)="openPage(livrando_doar)" menuClose>Doar</button>
+			<button ion-item (click)="openPage(livrando_emprestar)" menuClose>Emprestar</button>
+			<button ion-item (click)="openPage(livrando_trocar)" menuClose>Trocar</button>
+			<button ion-item (click)="openPage(livrando_vender)" menuClose>Vender</button>
+			<button ion-item>Procurando por...</button>
+			<button ion-item>Procurando em lojas oficiais</button>
+			<button ion-item>Sair</button>
+		</ion-list>
+	</ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #conteudo></ion-nav>

@@ -1,0 +1,33 @@
+<ion-view view-title="Login" hide-back-button="true" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding">
+
+
+    <div id="divLogin">
+      <div>
+             <img src="img/livrando.PNG" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+           </div>
+
+  <form name="loginForm">
+
+    <div class="list list-inset">
+            <label class="item item-input">
+                <input id="emailInput" required type="email" placeholder="E-mail" ng-model="data.email">
+            </label>
+            <label class="item item-input">
+                <input required type="password" placeholder="Senha" ng-model="data.password">
+            </label>
+   </div>
+ </form>
+      <button class="button button-block button-calm" ng-disabled="!loginForm.$valid" ng-click="login()">Login</button>
+ 	    <button class="button button-clear button-positive" ng-click="resetPassword()">Esqueceu sua senha? Clique aqui!</button>
+      <br>
+      <button class="button button-clear button-positive" ng-click="criarConta()">Novo aqui? Se cadastre!</button>
+      <button class="icon ion-social-facebook button button-block button-positive button-small" ng-click="fbLogin()"> Entrar com o Facebook</button>
+  </div>
+	<!--<label class="item item-input">
+		<input type="text" placeholder="Digite aqui..." ng-model="data.tst">
+	</label>
+	<button class="button button-block button-positive" ng-click="teste()">Cadastrar</button>-->
+
+  </ion-content>
+</ion-view>

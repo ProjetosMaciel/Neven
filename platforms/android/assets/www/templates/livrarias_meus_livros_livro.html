@@ -1,0 +1,34 @@
+<ion-view view-title="Livro">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarMeuLivroClicadoLivraria()">
+
+			<h2>{{livroClicadoLivraria.livnome}}</h2>
+			<img height="272" ng-src="{{livroClicadoLivraria.livfoto}}">
+			<!--<div width="100%" align="right">
+	      <button class="button button-block ion-trash-a button-clear button-dark" ng-click="removerLivro(rootScopeIdLivroClicado)">
+	        Remover
+	      </button>
+	    </div>-->
+			<div width="100%" align="right">
+	      <button class="button button-positive" ng-click="removerLivro(rootScopeIdLivroClicado)">
+	        Remover
+	      </button>
+	    </div>
+		  <ion-list style="text-align:left;">
+		    <ion-item>
+					<table style="width:100%;">
+						<tr>
+							<td class="item-text-wrap">
+					      <p>Autor: {{livroClicadoLivraria.livautor}}</p>
+					      <p>Editora: {{livroClicadoLivraria.liveditora}}</p>
+					      <p>Ano: {{livroClicadoLivraria.livano}}</p>
+								<p>URL: {{livroClicadoLivraria.url}}</p>
+							</td>
+						</tr>
+					<table>
+		    </ion-item>
+		  </ion-list>
+
+		</div>
+	</ion-content>
+</ion-view>

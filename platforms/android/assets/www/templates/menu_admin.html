@@ -1,0 +1,40 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable bar-positive">
+      <h1 class="title">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/menu_admin/admin_livrarias">
+          <i class="icon ion-bag menu-icons" style="padding-right: 5px;"></i>
+	         Livrarias
+        </ion-item>
+        <ion-item menu-close href="#/menu_admin/admin_pontos_encontro">
+          <i class="icon ion-location menu-icons" style="padding-right: 5px;"></i>
+	         Ponto de encontro
+        </ion-item>
+        <ion-item menu-close href="#/menu_admin/admin_estatisticas">
+          <i class="icon ion-pie-graph menu-icons" style="padding-right: 5px;"></i>
+	         Estatísticas
+        </ion-item>
+        <ion-item menu-close ng-click="logout()">
+          <i class="icon ion-log-out menu-icons" style="padding-right: 5px;"></i>
+  			   Sair
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

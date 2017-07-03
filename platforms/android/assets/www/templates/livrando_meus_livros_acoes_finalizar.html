@@ -1,0 +1,33 @@
+<ion-view view-title="" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="acaoFinalizarInfo(rootScopeIdLivroClicado, rootScopePOE)">
+			<h2 style="text-align: center;">Deseja finalizar a ação?</h2>
+
+			<table width="100%" style="padding: 10px;">
+	      <tr>
+					<td>
+						<button width="100%" style="margin-right: 5px;" class="button button-block button-positive" ng-click="cancelarPontoEncontro()">
+			        Cancelar
+			      </button>
+					</td>
+					<td>
+						<button width="100%" style="margin-left: 5px;" class="button button-block button-positive" ng-click="finalizarAcao()">
+			        Finalizar
+			      </button>
+					</td>
+				</tr>
+	    </table>
+			<br>
+
+			<h3>Livro:</h3>
+			<img ng-init="acoesBuscarLivro()" align="center" height="272" ng-src="{{livroClicado.livfoto}}">
+			<p ng-class="{'reais': rootScopeValorLivro}">{{rootScopeValorLivro}}</p>
+			<br><br>
+
+			<h3>Ponto de encontro:</h3>
+			<p ng-init="acoesBuscarPOE()" style="text-align: left;">Nome: {{pe.poenome}}</p>
+			<p style="text-align: left;">Local: {{pe.poerua}}, {{pe.poenumero}} - {{pe.poebairro}}, {{pe.poecidade}} - {{pe.poeestado}}</p>
+
+		</div>
+	</ion-content>
+</ion-view>

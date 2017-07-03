@@ -1,0 +1,16 @@
+<ion-view view-title="Amigos" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding" ng-init="buscarAmigos()">
+    <label class="item item-input">
+  		<input type="text" placeholder="Filtrar..." ng-model="searchText.username">
+  	</label>
+    <br>
+    <ion-list ng-repeat="amigo in amigos | filter: searchText">
+      <ion-item class="item-avatar" type="item-text-wrap" ng-click="amigoClicado(amigo.username)">
+        <img src="img/user.png" ng-src="{{amigo.foto}}">
+        <h2>{{amigo.username}}</h2>
+        <p>{{amigo.cidade}}</p>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

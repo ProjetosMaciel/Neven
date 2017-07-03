@@ -1,0 +1,17 @@
+<ion-view view-title="Home">
+  <ion-content class="padding">
+
+  <div class="centerDiv">
+     <p>Welcome, {{session.email}}</p>
+	 
+	<label class="item item-input">
+		<input type="text" placeholder="Digite aqui..." ng-model="data.tst">
+	</label>
+	 
+	 <button class="button button-block button-positive" ng-click="teste()">Cadastrar</button>
+	 
+     <button class="button button-block button-positive" ng-click="logout()">Logout</button>
+  </div>
+
+  </ion-content>
+</ion-view>

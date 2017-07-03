@@ -1,0 +1,37 @@
+<ion-view view-title="Meus livros">
+	<ion-content class="padding">
+		<div class="centerDiv">
+			<table>
+				<tr>
+					<td>
+						<label class="item item-input">
+							<input type="text" placeholder="Livro" ng-model="data.nome">
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="item item-input">
+							<input type="text" placeholder="Autor" ng-model="data.autor">
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="item item-input">
+							<input type="text" placeholder="Editora" ng-model="data.editora">
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label class="item item-input">
+							<input type="text" placeholder="Ano" ng-model="data.ano">
+						</label>
+					</td>
+				</tr>
+			</table>
+			<button class="button button-block button-positive" ng-click="cadastrarLivro()">Cadastrar</button>
+		</div>
+	</ion-content>
+</ion-view>

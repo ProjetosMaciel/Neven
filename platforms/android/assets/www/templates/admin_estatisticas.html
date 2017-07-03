@@ -1,0 +1,27 @@
+<ion-view view-title="Estatísticas" hide-back-button="true" cache-view="false">
+	<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+	<ion-content class="padding">
+		<div ng-init="buscarEstatisticas()">
+
+			<br>
+			<ion-list>
+				<ion-item type="item-text-wrap" ng-click="">
+					<h2>Usuários: {{usuarios}}</h2>
+				</ion-item>
+				<ion-item type="item-text-wrap" ng-click="">
+					<h2>Livros: {{livros}}</h2>
+				</ion-item>
+				<ion-item type="item-text-wrap" ng-click="">
+					<h2>Livrarias: {{livrarias}}</h2>
+				</ion-item>
+				<ion-item type="item-text-wrap" ng-click="">
+					<h2>Pontos de encontro: {{pontosEncontro}}</h2>
+				</ion-item>
+			</ion-list>
+			<br><br>
+
+		</div>
+	</ion-content>
+</ion-view>

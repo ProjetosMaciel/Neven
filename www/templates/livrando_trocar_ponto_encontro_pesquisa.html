@@ -1,0 +1,55 @@
+<ion-view view-title="Ponto de encontro" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding">
+    <div class="centerDiv">
+
+     <p style="text-align: center;">Selecione o ponto de encontro através das pesquisa:</p>
+
+     <label class="item item-input item-select">
+       <div class="input-label">Selecione uma opção</div>
+       <select ng-model="selecao">
+         <option value="nome">Nome</option>
+         <option value="estado">Estado</option>
+         <option value="cidade">Cidade</option>
+         <option value="rua">Rua</option>
+         <option value="numero">Número</option>
+       </select>
+     </label>
+
+     <table style="width: 100%;">
+       <tr>
+         <td>
+           <form name="inputPesquisa">
+             <label class="item item-input" style="vertical-align: middle;">
+                 <input type="text" placeholder="Digite aqui..." ng-model="textoBusca">
+             </label>
+           </form>
+         </td>
+         <td>
+           <button class="button button-positive ion-android-search" style="vertical-align: middle;" ng-disabled="!inputPesquisa.$valid" ng-click="buscarPontoEncontro(textoBusca, selecao)"></button>
+         </td>
+       </tr>
+     </table>
+
+     <ion-list ng-repeat="pe in pontoencontro">
+ 			<ion-item style="text-align:left;" ng-click="pontoEncontroClicado(pe.id)">
+ 				<table>
+ 					<tr>
+ 						<td style="padding-left: 10px;vertical-align: middle;">
+ 							<h2>{{pe.poenome}}</h2>
+ 						</td>
+ 					</tr>
+          <tr>
+            <td style="padding-left: 10px;vertical-align: middle;">
+ 							<p>{{pe.poerua}}, {{pe.poenumero}} - {{pe.poebairro}}, {{pe.poecidade}} - {{pe.poeestado}}</p>
+ 						</td>
+          </tr>
+ 				</table>
+ 			</ion-item>
+ 		</ion-list>
+
+  </div>
+  </ion-content>
+  <div class="tabs tabs-icon-top tabs-positive">
+
+  </div>
+</ion-view>

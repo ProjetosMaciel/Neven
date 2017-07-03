@@ -1,0 +1,62 @@
+<ion-view view-title="Ponto de encontro" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv">
+
+			<p style="text-align: center;">Selecione o ponto de encontro através das pesquisa:</p>
+
+      <label class="item item-input item-select">
+        <div class="input-label">Filtre aqui</div>
+        <select ng-model="selecao">
+          <option value="nome">Nome</option>
+          <option value="estado">Estado</option>
+          <option value="cidade">Cidade</option>
+          <option value="rua">Rua</option>
+          <option value="numero">Número</option>
+        </select>
+      </label>
+			<br>
+
+			<table width="100%">
+			 <tr>
+				 <td>
+					 <label class="item item-input" style="vertical-align: middle;">
+							 <i class="icon ion-ios-search placeholder-icon"></i>
+							 <input type="search" placeholder="Digite aqui..." ng-model="textoBusca">
+					 </label>
+				 <td>
+				 <td>
+					<button class="button button-positive ion-android-search" style="vertical-align: middle;" ng-click="buscarPontoEncontro(textoBusca, selecao)"></button>
+				 <td>
+			 </tr>
+			</table>
+
+		  <!--<div class="list">
+		 	 <div class="item item-input-inset">
+		 		 <label class="item-input-wrapper" style="vertical-align: middle;">
+		 				 <i class="icon ion-ios-search placeholder-icon"></i>
+		 				 <input type="search" placeholder="Digite aqui..." ng-model="textoBusca">
+		 		 </label>
+		 		 <button class="button button-positive ion-android-search" style="vertical-align: middle;" ng-click="buscarPontoEncontro(textoBusca, selecao)"></button>
+		 	 </div>
+		 </div>-->
+
+      <ion-list ng-repeat="pe in pontoencontro">
+  			<ion-item style="text-align:left;" ng-click="pontoEncontroClicado(pe.id)">
+  				<table>
+  					<tr>
+  						<td style="padding-left: 10px;vertical-align: middle;" class="item-text-wrap">
+  							<h2>{{pe.poenome}}</h2>
+  						</td>
+  					</tr>
+           <tr>
+             <td style="padding-left: 10px;vertical-align: middle;" class="item-text-wrap">
+  							<p>{{pe.poerua}}, {{pe.poenumero}} - {{pe.poebairro}}, {{pe.poecidade}} - {{pe.poeestado}}</p>
+  						</td>
+           </tr>
+  				</table>
+  			</ion-item>
+  		</ion-list>
+
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view title="Editar">
+  <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false">
+    <div id="divLogin">
+
+      <div >
+         <p>Nome:</p>
+      </div>
+      <label class="item item-input">
+        <input type="text" required type="nome"placeholder="Informe o nome..." ng-model="data.nome">
+      </label>
+
+      <div>
+         <p>Cidade:</p>
+      </div>
+          <label class="item item-input">
+          <input type="text" required type="email" placeholder="Informe a sua cidade..." ng-model="data.cidade">
+        </label>
+
+        <div>
+          <p>Data de nascimento:</p>
+        </div>
+        <label class="item item-input">
+          <input type="date" placeholder="17/11/1990" ng-model="data.dataNascimento">
+         </label>
+         <div>
+           <p>Descrição do usuário:</p>
+         </div>
+         <label class="item item-input">
+           <textarea rows="6" placeholder="Escreva algo..." ng-model="data.UserMensagem"></textarea>
+         </label>
+
+           <button class="button button button-positive  button-block"  ng-click="SalvarEdi()">Salvar</button>
+     </div>
+  </ion-content>
+</ion-view>

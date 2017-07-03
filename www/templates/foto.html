@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar class="border-header">
+    <h1 class="title">Escolha sua foto</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeFoto()"><i class="ion-android-close btn-fechar"></i></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+
+   <img ng-src="{{rootScopeFoto}}" class="foto-perfilU" ng-show="btn3">
+   <img ng-src="{{foto}}" class="foto-perfilU" ng-show="btn3">
+
+
+
+<div class="button-bar">
+  <a class="button ion-checkmark" ng-click="enviarFoto()"> Salvar</a>
+  <a class="button ion-android-camera" ng-click="limpar()"> Nova Foto</a>
+</div>
+
+
+
+
+
+  </ion-content>
+
+  <button class="camera" ng-show="btn2" ng-click="FotoCamera()"> <i class="ion-android-camera camera"></i></button>
+  <button class="camera2" ng-show="btn2" ng-click="FotoGaleria()"> <i class="ion-android-archive"></i></button>
+
+
+
+</ion-modal-view>

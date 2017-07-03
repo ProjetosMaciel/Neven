@@ -1,0 +1,47 @@
+<ion-view view-title="Amigo" cache-view="false">
+  <ion-content class="padding">
+  <div class="centerDiv" ng-init="buscarAmigoInformacoes(rootScopeEmailAmigo)">
+
+  	<h2>{{rootScopeNomeAmigo}}</h2>
+  	<img class="foto-perfil" src="img/user.png" ng-src="{{amigos.foto}}">
+    <div width="100%" align="right">
+      <button class="button  button-positive" ng-click="removerPessoa()">
+        Desfazer amizade
+      </button>
+    </div>
+    <ion-list  class="manual-list-fullwidth" style="text-align:left;">
+      <ion-item class="item-icon-left" >
+        <i class="icon ion-android-home"></i>Cidade: {{amigos.cidade}}
+      </ion-item>
+
+        <ion-item class="item-icon-left" >
+          <i class="icon ion-android-calendar"></i> Data de nascimento: {{amigos.DNascimento}}
+        </ion-item>
+
+        <!--  <ion-item class="item-icon-left" >
+            <i class="icon ion-android-calendar" moment().format('dd/MM/yyyy');></i> Data de nascimento: {{session.DNascimento}}
+          </ion-item> -->
+
+       <ion-item class="item-icon-left" >
+         <i class="icon ion-email"></i> E-mail: {{amigos.email}}
+       </ion-item>
+
+    </br>
+    <p >Mensagem do usuario:</p>
+    <ion-item class="item-text-wrap" >
+    {{amigos.mensagem}}
+  </ion-item>
+</ion-list>
+<br><br><br><br><br>
+  </div>
+
+  </ion-content>
+  <ion-tabs class="tabs-positive tabs-striped">
+      <ion-tab icon-on="ion-android-happy" icon-off="ion-android-happy" href="#/menu/livrando_meus_amigos_amigo">
+      </ion-tab>
+      <ion-tab icon-on="ion-ios-book" icon-off="ion-ios-book" href="#/menu/livrando_meus_amigos_amigo_livros">
+      </ion-tab>
+      <ion-tab icon-on="ion-android-contacts" icon-off="ion-android-contacts" href="#/menu/livrando_meus_amigos_amigo_amigos">
+      </ion-tab>
+  </ion-tabs>
+</ion-view>

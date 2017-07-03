@@ -1,0 +1,23 @@
+<ion-view view-title="Conversas" hide-back-button="true" can-swipe-back="false" cache-view="false">
+  <!--<ion-nav-buttons side="right">
+    <button class="button ion-plus-round" icon-only ng-click="adicionarConversa()"></button>
+  </ion-nav-buttons>-->
+  <ion-content class="padding" ng-init="zerarRootScopeAmigo()">
+
+    <div width="100%" align="right">
+      <button class="button button-positive" ng-click="adicionarConversa()">
+        Nova conversa
+      </button>
+    </div>
+    <br>
+    <p style="text-align: center;">Aqui aparecem suas conversas:</p>
+    <ion-list ng-repeat="chat in chatsFotos">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-click="amigoClicado(chat.username)">
+        <img src="img/user.png" ng-src="{{chat.foto}}">
+        <h2>{{chat.username}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

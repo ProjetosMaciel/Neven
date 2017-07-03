@@ -1,0 +1,31 @@
+<ion-view view-title="Adicionar livraria">
+	<ion-content class="padding">
+		<div class="centerDiv">
+			<br><br>
+
+			<form name="loginForm">
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Nome:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" required type="nome" placeholder="Nome da livraria..." ng-model="data.nome">
+		    </label>
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">E-mail:</p>
+		    </div>
+	      <label class="item item-input">
+	        <input id="emailInput" required type="email" placeholder="E-mail da livraria..." ng-model="data.email">
+	      </label>
+				<!--<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Senha:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input required type="password" placeholder="Senha da livraria..." ng-model="data.senha">
+		    </label>-->
+			</form>
+
+			<button class="button button-positive button-block" ng-disabled="!loginForm.$valid" ng-click="cadastrarLivraria()">Cadastrar</button>
+			<br><br>
+		</div>
+	</ion-content>
+</ion-view>

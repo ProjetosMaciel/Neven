@@ -1,0 +1,28 @@
+<ion-view view-title="Troca" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv">
+
+			<p style="text-align: center;">Digite aqui uma descrição para a troca (Ex.: por qual livro você gostaria de efetuar a troca):</p>
+
+			<div class="list">
+
+		 		 <!--<label class="item-input-wrapper" style="vertical-align: middle;">
+
+		 				 <input type="search" placeholder="Digite aqui..." ng-model="texto">
+		 		 </label>-->
+				 <label width="100%" class="item item-input">
+					 <textarea rows="6" placeholder="Digite aqui..." ng-model="texto"></textarea>
+				 </labe>
+
+
+		  </div>
+			<div align="right">
+				<button class="button button-positive" ng-click="irParaPontoEncontroAposTexto(texto)">
+					 Seguinte
+				</button>
+	    </div>
+
+		</div>
+	</ion-content>
+
+</ion-view>

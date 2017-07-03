@@ -1,0 +1,33 @@
+<ion-view view-title="Login" hide-back-button="true" can-swipe-back="false">
+  <ion-content class="padding">
+
+    <div id="divLogin">
+
+    <div  class="show-list-numbers-and-dots">
+      <p style="color:#000000;">Nome completo:</p>
+    </div>
+    <label class="item item-input">
+      <input type="text" required  placeholder="Informe seu nome completo" ng-model="data.nome">
+    </label>
+    <div  class="show-list-numbers-and-dots">
+      <p style="color:#000000;">E-mail:</p>
+    </div>
+
+      <label class="item item-input">
+        <input  required type="email" placeholder="Informe seu e-mail" ng-model="data.email">
+
+      </label>
+        <!--<button class="button button-clear button-positive" ng-click="mailNewCode()">Verificar email</button>-->
+
+    <div class="show-list-numbers-and-dots">
+      <p style="color:#000000;">Senha:</p>
+    </div>
+    <label class="item item-input">
+      <input required type="password" placeholder="Informe sua senha" ng-model="data.password">
+    </label>
+
+  <button class="button button-positive button-block" ng-click="signUp()">Cadastrar</button>
+
+</div>
+  </ion-content>
+</ion-view>

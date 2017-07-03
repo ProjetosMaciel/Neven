@@ -1,0 +1,128 @@
+<ion-view view-title="Procurar livro" can-swipe-back="false">
+  <ion-nav-buttons side="right">
+    <!--<button class="button ion-heart" icon-only ng-click="adicionarDesejados(livroClicado.livroId)"></button>
+    <button class="button ion-android-chat" icon-only ng-click="adquirirLivro(livroClicado.id, livroClicado.livroId)"></button>
+    <button class="button ion-android-chat" icon-only ng-click="irParaConversa(livroClicado.username)"></button>-->
+  </ion-nav-buttons>
+  <ion-content class="padding">
+  	<div class="centerDiv" ng-init="buscarLivroClicado(rootScopeIdLivro, rootScopeIdLivroUXL)">
+
+    <h2>{{livroClicado.livnome}}</h2>
+    <table>
+      <tr>
+        <td style="width: 33%;"></td>
+        <td  style="width: 33%;" align="center">
+          <img height="272" ng-src="{{livroClicado.livfoto}}">
+        </td>
+        <td  style="width: 33%; vertical-align: top; padding: 10px;" align="right">
+          <i class="icon ion-heart custom-icon-heart-grey" ng-click="adicionarDesejados(rootScopeIdLivro)"
+          ng-init="verificarDesejado(rootScopeIdLivro)" ng-class="{'custom-icon-heart-red': rootScopeHeartStatus == 'desejado'}"></i>
+        </td>
+      </tr>
+    </table>
+    <div width="100%" align="right">
+      <button ng-class="{'texto_livro_livraria_site': tipo == 'livraria', 'texto_livro_eu_quero': tipo == 'usuario'}"
+      class="button button-positive ion-android-search"
+      ng-click="irParaConversa(livroClicado.id, livroClicado.username, livroClicado.email, livroClicado.tipo, rootScopeIdLivro)">
+        <p></p>
+      </button>
+    </div>
+    <!--<ion-list style="text-align:left; padding: 0px;">
+      <ion-item>
+        <p>Autor: {{livroClicado.livautor}}</p>
+      </ion-item>
+      <ion-item>
+        <p>Editora: {{livroClicado.liveditora}}</p>
+      </ion-item>
+      <ion-item>
+        <p>Ano: {{livroClicado.livano}}</p>
+      </ion-item>
+    </ion-list>
+        <br>
+        <i class="icon ion-android-contact"></i>
+        Pertence ao usuário: {{livroClicado.username}}
+        <br>
+        <i class="icon ion-alert" style="padding-right: 4px;"></i>
+        Status: disponível para {{status}}
+        <br>
+        <i class="icon ion-location"></i>
+        Está em: {{}}-->
+        <table style="text-align:left;border-collapse: collapse;width: 100%;">
+          <tr>
+            <th colspan="2" style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+              <h4>Características</h4>
+            </th>
+          </tr>
+          <tr style="background-color: #dddddd;">
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Autor</td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livautor}}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Editora</td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.liveditora}}</td>
+          </tr>
+          <tr style="background-color: #dddddd;">
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Ano</td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livano}}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">Gênero</td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.livgenero}}</td>
+          </tr>
+          <tr>
+            <th colspan="2" style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+              <h4>Informações</h4>
+            </th>
+          </tr>
+          <tr style="background-color: #dddddd;">
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+              <i class="icon ion-android-contact"></i>
+            	Pertence a
+            </td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{livroClicado.username}}</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+                <i class="icon ion-alert"></i>
+                Status
+            </td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">{{status2}}</td>
+          </tr>
+          <!--<tr style="background-color: #dddddd;">
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+                <i class="icon ion-location"></i>
+                Está em
+            </td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px; ">{{mais3}}{{}}</td>
+          </tr>-->
+          <br>
+          <tr>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+              <i class="icon ion-information-circled"></i>
+              {{mais1}}
+            </td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px; ">
+              {{mais2}}
+                {{livroClicado.valorVenda}}
+                {{livroClicado.textoTroca}}
+            </td>
+          </tr>
+          <!--<tr>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+
+                <p ng-class="{'valor_procurar_livro': livroClicado.valorVenda}"></p>
+            </td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;" ng-class="{'reais_procurar_livro': livroClicado.valorVenda}">{{livroClicado.valorVenda}}</td>
+          </tr>
+          <tr style="background-color: #dddddd;">
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px;">
+
+                <p ng-class="{'descricao_procurar_livro': livroClicado.textoTroca}"></p>
+            </td>
+            <td style="border: 1px solid #dddddd;text-align: left;padding: 8px; ">{{livroClicado.textoTroca}}</td>
+          </tr>-->
+        </table>
+        <br><br>
+
+  </ion-content>
+</ion-view>

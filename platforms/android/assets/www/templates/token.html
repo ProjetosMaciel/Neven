@@ -1,0 +1,29 @@
+<ion-view view-title="Login" hide-back-button="true" can-swipe-back="false">
+  <ion-content class="padding">
+
+
+
+
+  <div id="divLogin">
+    <div class="show-list-numbers-and-dots">
+      <p style="color:#000000;">E-mail:</p>
+    </div>
+    <label class="item item-input">
+        <input required type="email" placeholder="E-mail" ng-model="data.email">
+    </label>
+    <br>
+        <div class="show-list-numbers-and-dots">
+          <p style="color:#000000;">Token:</p>
+        </div>
+
+      <label class="item item-input">
+        <input type="text" required type="token" placeholder="Insira o token recebido" ng-model="data.token">
+      </label>
+
+
+  <button class="button button-positive button-block" ng-click="validaToken()">OK</button>
+
+
+</div>
+  </ion-content>
+</ion-view>

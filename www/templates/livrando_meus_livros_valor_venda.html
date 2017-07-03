@@ -1,0 +1,23 @@
+<ion-view view-title="Valor do livro" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv">
+
+			<p style="text-align: center;">Digite aqui a qual valor o livro irá ser vendido:</p>
+
+			<div class="list">
+		 	 <div class="item item-input-inset">
+		 		 <label class="item-input-wrapper" style="vertical-align: middle;">
+
+		 				 <input type="number" placeholder="Digite aqui o valor..." ng-model="valor">
+		 		 </label>
+		 		 <!--<button class="button button-positive" style="vertical-align: middle;" ng-click="irParaPontoEncontroAposValor(valor)">OK</button>-->
+		 	 </div>
+		  </div>
+	    <button class="button button-block button-positive" ng-click="irParaPontoEncontroAposValor(valor)">
+	      Confirmar
+	    </button>
+
+		</div>
+	</ion-content>
+
+</ion-view>

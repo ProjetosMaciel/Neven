@@ -1,0 +1,51 @@
+<ion-view view-title="Livros para doar" can-swipe-back="false" cache-view="false">
+  <ion-nav-buttons side="right">
+    <!--<button class="button ion-android-close icon-right" icon-only ng-click="cancelarDoar()"></button>
+    <button class="button ion-android-done icon-right" icon-only ng-click="adicionarLivroDoar()"></button>-->
+  </ion-nav-buttons>
+  <ion-content class="padding" ng-init="buscarMeusLivrosDoar()">
+
+    <p style="text-align: center;">Marque os livros que deseja doar:</p>
+
+    <ion-list ng-repeat="livro in livros">
+      <ion-item style="padding: 0px;">
+        <ion-checkbox checked="false" ng-model="checkLivros[livro.id]">
+          <h2>{{livro.livnome}}</h2>
+          <p>{{livro.livautor}}</p>
+        </ion-checkbox>
+        <!--<table>
+          <tr>
+            <td rowspan="2" style="padding-right: 10px;vertical-align: middle;">
+              <ion-thumbnail item-left>
+                <img width="64" height="100" src="img/livro_o_diario_de_anne_frank.png">
+              </ion-thumbnail>
+            </td>
+            <td style="vertical-align: bottom;">
+              <h2>{{livro.livnome}}</h2>
+            </td>
+            <td rowspan="2" style="padding-left: 10px;vertical-align: middle;">
+              <ion-checkbox></ion-checkbox>
+            </td>
+          </tr>
+            <td style="vertical-align: top;">
+              <p>{{livro.livautor}}</p>
+            </td>
+          <tr>
+          </tr>
+        </table>-->
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+  <!-- tab -->
+  <div class="tabs tabs-icon-top tabs-positive">
+    <a class="tab-item">
+      <i class="icon ion-android-close" ng-click="cancelarDoar()"></i>
+      Cancelar
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-android-done" ng-click="adicionarLivroDoar()"></i>
+      Pronto
+    </a>
+  </div>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-view view-title="Adicionar ponto de encontro">
+	<ion-content class="padding">
+		<div class="centerDiv">
+			<br><br>
+
+			<form name="loginForm">
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Nome:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" required placeholder="Nome..." ng-model="data.nome">
+		    </label>
+				<!-- -->
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Estado:</p>
+		    </div>
+	      <label class="item item-input">
+	        <input type="text" required placeholder="Estado..." ng-model="data.estado">
+	      </label>
+				<!-- -->
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Cidade:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" required placeholder="Cidade..." ng-model="data.cidade">
+		    </label>
+				<!-- -->
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Bairro:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" required placeholder="Bairro..." ng-model="data.bairro">
+		    </label>
+				<!-- -->
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Rua:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" required placeholder="Rua..." ng-model="data.rua">
+		    </label>
+				<!-- -->
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Número:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" placeholder="Número..." ng-model="data.numero">
+		    </label>
+				<!-- -->
+			</form>
+
+			<button class="button button-positive button-block" ng-disabled="!loginForm.$valid" ng-click="cadastrarPontoEncontro()">Salvar</button>
+			<br><br>
+		</div>
+	</ion-content>
+</ion-view>

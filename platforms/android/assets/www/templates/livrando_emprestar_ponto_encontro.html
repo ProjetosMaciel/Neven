@@ -1,0 +1,39 @@
+<ion-view view-title="Ponto de encontro" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding">
+
+     <p style="text-align: center;">Como você vai selecionar o ponto de encontro?</p>
+
+     <div class="row">
+       <div class="col col-50">
+         <button class="button button-block button-positive" ng-click="abrirPoeMapa()">
+           <i class="icon ion-map"></i>
+           Mapa
+         </button>
+       </div>
+       <div class="col col-50">
+         <button class="button button-block button-positive" ng-click="abrirPoePesquisa()">
+           <i class="icon ion-android-search"></i>
+           Pesquisa
+         </button>
+       </div>
+     </div>
+
+  </ion-content>
+  <!-- tab -->
+  <div class="tabs tabs-icon-top tabs-positive">
+    <a class="tab-item">
+      <i class="icon ion-android-arrow-back" ng-click="cancelarPontoEncontro()"></i>
+      Voltar
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-android-done" ng-click="seguinteEmprestar()"></i>
+      Finalizar
+    </a>
+  </div>
+  <!--<div class="tabs tabs-icon-right tabs-positive">
+    <a class="tab-item">
+      Avançar
+      <i class="icon ion-android-arrow-forward" ng-click="seguinteDoar()"></i>
+    </a>
+  </div>-->
+</ion-view>

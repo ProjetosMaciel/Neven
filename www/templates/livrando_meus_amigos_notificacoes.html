@@ -1,0 +1,29 @@
+<ion-view view-title="Notificações" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding">
+
+  <div class="centerDiv" ng-init="buscarPessoaSolicitacaoAmizade()">
+	<p>Solicitações de amizade:</p>
+
+  <!--<button class="button button-block button-positive" ng-click="buscarPessoaSolicitacaoAmizade()">Buscar</button>-->
+
+  <ion-list ng-repeat="pessoa in pessoas | filter: searchText">
+		<ion-item style="text-align:left;" ng-click="mostrarNotificacao(pessoa.userEmail)">
+			<table>
+				<tr>
+					<td>
+						<ion-avatar>
+							<img class="foto-perfil-little" src="img/user.png" ng-src="{{pessoa.foto}}">
+						</ion-avatar>
+					</td>
+					<td style="padding-left: 10px;vertical-align: middle;">
+						<p>{{pessoa.username}}</p>
+					</td>
+				</tr>
+			</table>
+		</ion-item>
+	</ion-list>
+
+  </div>
+
+  </ion-content>
+</ion-view>

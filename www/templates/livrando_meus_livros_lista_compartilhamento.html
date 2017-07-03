@@ -1,0 +1,38 @@
+<ion-view view-title="Mais" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv">
+
+			<br>
+			<ion-list style="text-align: left;">
+				<div class="item item-divider">
+			    Compartilhamentos
+			  </div>
+				<ion-item type="item-text-wrap" ng-click="livroParaCompartilhamento('doacao')">
+					<i class="icon ion-share menu-icons" style="padding-right: 10px;"></i>
+					Lista de doação
+				</ion-item>
+				<ion-item type="item-text-wrap" ng-click="livroParaCompartilhamento('emprestimo')">
+					<i class="icon ion-android-time menu-icons" style="padding-right: 10px;"></i>
+					Lista de empréstimo
+				</ion-item>
+				<ion-item type="item-text-wrap" ng-click="livroParaCompartilhamento('troca')">
+					<i class="icon ion-arrow-swap menu-icons" style="padding-right: 10px;"></i>
+					Lista de troca
+				</ion-item>
+				<ion-item type="item-text-wrap" ng-click="livroParaCompartilhamento('venda')">
+					<i class="icon ion-cash menu-icons" style="padding-right: 10px;"></i>
+					Lista de venda
+				</ion-item>
+				<div class="item item-divider">
+			    Mais
+			  </div>
+				<ion-item type="item-text-wrap" ng-click="abrirHistorico()">
+					<i class="icon ion-android-time menu-icons" style="padding-right: 10px;"></i>
+					Histórico
+				</ion-item>
+			</ion-list>
+			<br><br>
+
+		</div>
+	</ion-content>
+</ion-view>

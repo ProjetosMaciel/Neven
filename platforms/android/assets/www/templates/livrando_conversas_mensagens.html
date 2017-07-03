@@ -1,0 +1,36 @@
+<ion-view ng-init="buscarConversa()" view-title="{{newRootScopeAmigo}}" can-swipe-back="false" cache-view="false">
+  <ion-content class="padding">
+
+    <!--<div class="list">
+      <a class="item item-avatar" ng-repeat=" in ">
+        <img>
+        <h2>{{.user}}</h2>
+        <p>{{.message}}</p>
+      </a>
+    </div>-->
+
+    <!--<ion-list>
+      <ion-item ng-repeat="mensagem in mensagens" type="item-text-wrap">
+        <img>
+        <h2>{{mensagem}}</h2>
+      </ion-item>
+    </ion-list>-->
+
+    <div ng-repeat="mensagem in mensagens" ng-class="{other: mensagem.userLoged == userLoged}" class="messages">
+
+      <div class="message">
+        <span class="span">{{mensagem.text}}</span>
+      </div>
+
+    </div>
+    <br><br>
+    <a id="bottom"></a>
+    <br><br><br>
+  </ion-content>
+  <div class="bar bar-footer bar-positive item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Digite aqui..." ng-model="conversa.message">
+    </label>
+    <button class="button icon ion-android-send" ng-click="sendChat(conversa)"></button>
+  </div>
+</ion-view>

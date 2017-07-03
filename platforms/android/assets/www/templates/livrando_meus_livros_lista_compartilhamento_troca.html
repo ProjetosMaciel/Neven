@@ -1,0 +1,34 @@
+<ion-view view-title="Troca" cache-view="false">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarLivrosReferenteAcao(rootScopeAcaoTroca)">
+
+			<br>
+			<label class="item item-input">
+				<input type="text" placeholder="Filtrar..." ng-model="searchText.livnome">
+			</label>
+			<ion-list ng-repeat="livro in livros | filter: searchText">
+				<ion-item>
+					<table>
+						<tr>
+							<td rowspan="2" style="padding-right: 10px;vertical-align: middle;">
+								<ion-thumbnail item-left>
+									<img height="100" ng-src="{{livro.livfoto}}">
+								</ion-thumbnail>
+							</td>
+							<td height="50" style="vertical-align: bottom;text-align: left;">
+								<h2>{{livro.livnome}}</h2>
+							</td>
+						</tr>
+						<tr>
+							<td height="50" style="vertical-align: top;text-align: left;">
+								<p>{{livro.livautor}}</p>
+							</td>
+						</tr>
+					</table>
+				</ion-item>
+			</ion-list>
+			<br><br>
+
+		</div>
+	</ion-content>
+</ion-view>
