@@ -9,7 +9,7 @@ angular.module('starter.services', [])
 			template: 'Chegou no post.'
 		});
 
-		$http.post("http://192.168.43.78:3000/teste",
+		$http.post("http://172.17.0.13:3000/teste",
 		    { params: {
 				"livtst": tst}
 		    })
@@ -23,7 +23,7 @@ angular.module('starter.services', [])
 
 	function adicionarPessoa(userLoged, email){
 
-		$http.post("http://192.168.43.78:3000/adicionarPessoa",
+		$http.post("http://172.17.0.13:3000/adicionarPessoa",
 			{ params: {
 				//"relacao_de": userLoged,
 				"userEmail": userLoged,
@@ -61,7 +61,7 @@ angular.module('starter.services', [])
 			template: 'aceitarAmizade'
 		});*/
 
-		$http.post("http://192.168.43.78:3000/aceitarAmizade",
+		$http.post("http://172.17.0.13:3000/aceitarAmizade",
 			{ params: {
 				"relacao_para": userLoged,
 				//"relacao_de": email
@@ -91,7 +91,7 @@ angular.module('starter.services', [])
 			template: 'recusarAmizade'
 		});*/
 
-		$http.post("http://192.168.43.78:3000/recusarAmizade",
+		$http.post("http://172.17.0.13:3000/recusarAmizade",
 			{ params: {
 				"relacao_para": userLoged,
 				//"relacao_de": email
@@ -116,7 +116,7 @@ angular.module('starter.services', [])
 
 	function cadastrarLivro(nome, autor, editora, ano){
 
-		$http.post("http://192.168.43.78:3000/cadastrarLivro",
+		$http.post("http://172.17.0.13:3000/cadastrarLivro",
 			{ params: {
 				"livnome": nome,
 				"livautor": autor,
@@ -133,7 +133,7 @@ angular.module('starter.services', [])
 
 	/*function buscarLivro(id){
 
-		$http.post("http://192.168.43.78:3000/buscarLivro",
+		$http.post("http://172.17.0.13:3000/buscarLivro",
 			{ params: {
 						"id": id}
 						//}
@@ -161,7 +161,7 @@ angular.module('starter.services', [])
               template: 'Entrando...'
           });
 
-      $http.post("http://192.168.43.78:3000/login",
+      $http.post("http://172.17.0.13:3000/login",
              { params: {
                          "email": email,
                          "password": password}
@@ -207,7 +207,7 @@ angular.module('starter.services', [])
 
 
 
-	    $http.post("http://192.168.43.78:3000/enviarfoto",
+	    $http.post("http://172.17.0.13:3000/enviarfoto",
 	      { params: {
 	        "foto": foto,}
 
@@ -237,7 +237,7 @@ angular.module('starter.services', [])
               template: 'Saindo...'
           });
 
-        $http.post("http://192.168.43.78:3000/logout",
+        $http.post("http://172.17.0.13:3000/logout",
              { params: { "email": email }})
                .success(function(response) {
 
@@ -270,7 +270,7 @@ angular.module('starter.services', [])
               template: 'Criando conta...'
           });
 
-            $http.post("http://192.168.43.78:3000/signUp",
+            $http.post("http://172.17.0.13:3000/signUp",
                { params: {
 							 						 "username": nome,
                            "email": email,
@@ -289,6 +289,9 @@ angular.module('starter.services', [])
                else{ // SUCCESS
 
                     window.localStorage['session'] = JSON.stringify(response);
+										$ionicPopup.alert({
+	                       title: 'Token enviado',
+	                       template: 'Enviamos um codigo de verificação para o seu endereço de e-mail. Insira-o no campo abaixo.' });
                     $state.transitionTo('validarEmail');
                }
               })
@@ -307,7 +310,7 @@ angular.module('starter.services', [])
 							template: 'Criando conta...'
 					});
 
-						$http.post("http://192.168.43.78:3000/signUpFb",
+						$http.post("http://172.17.0.13:3000/signUpFb",
 							 { params: {
 													 "username": nome,
 													 "email": email,
@@ -382,10 +385,7 @@ angular.module('starter.services', [])
 	}
 	function adicionarAmigo(donoEmail){
 
-		$ionicPopup.alert({
-				title: 'adicionarAmigo service',
-				template: donoEmail
-		});
+
 		$rootScope.rootScopeDonoEmail = donoEmail;
 		$state.transitionTo('menu.livrando_meus_amigos_adicionar_clicado');
 	}
