@@ -1,5 +1,5 @@
 angular.module('starter.controllers', ['firebase','ngOpenFB'])
-//teste**********
+//teste********** como vou fazer este teste
 .controller('LivrariasCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
 	$scope.$on('$ionicView.enter', function(e) {
