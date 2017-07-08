@@ -2,6 +2,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 //teste********** como vou fazer este teste mais um
 
 // Lalala lalala land
+// Essa merda não funciona
 
 .controller('LivrariasCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
