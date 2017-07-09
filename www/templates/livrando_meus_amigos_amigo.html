@@ -4,6 +4,9 @@
 
   	<h2>{{rootScopeNomeAmigo}}</h2>
   	<img class="foto-perfil" src="img/user.png" ng-src="{{amigos.foto}}">
+    <div>
+    <ionic-ratings ratingsobj='ratingsObject' index='0'></ionic-ratings>
+  </div>
     <div width="100%" align="right">
       <button class="button  button-positive" ng-click="removerPessoa()">
         Desfazer amizade

@@ -1,6 +1,6 @@
-angular.module('starter.controllers', ['firebase','ngOpenFB'])
-//teste********** como vou fazer este teste mais um
-//kkkkk
+angular.module('starter.controllers', ['firebase','ngOpenFB', 'ionic-ratings'])
+
+
 .controller('LivrariasCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
 	$scope.$on('$ionicView.enter', function(e) {
@@ -194,6 +194,33 @@ angular.module('starter.controllers', ['firebase','ngOpenFB'])
 										$ionicLoading.hide();
 						});
 	}
+
+	// teste da avaliação
+
+	$scope.ratingsObject = {
+
+        iconOn: 'ion-ios-star',    //Optional
+        iconOff: 'ion-ios-star-outline',   //Optional
+        iconOnColor: 'rgb(200, 200, 100)',  //Optional
+        iconOffColor:  'rgb(200, 100, 100)',    //Optional
+        rating:  0, //Optional
+        minRating:0,    //Optional
+        readOnly: false, //Optional
+
+        callback: function(rating, index) {    //Mandatory
+          $scope.ratingsCallback(rating, index);
+        }
+      };
+
+      $scope.ratingsCallback = function(rating, index) {
+				$ionicPopup.alert({
+					title: 'Alerta',
+					template: 'Teste'
+				})
+        console.log('Selected rating is : ', rating, ' and the index is : ', index);
+      };
+
+	//########################Fim#######################
 	$scope.abrirLivroAmigo = function(idLivro) {
 		$rootScope.rootScopeIdLivro = idLivro;
 		$state.go('menu.livrando_meus_amigos_amigo_livros_clicado');
