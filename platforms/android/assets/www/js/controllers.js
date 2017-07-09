@@ -197,7 +197,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB', 'ionic-ratings'])
 
 	// teste da avaliação
 
-	$scope.ratingsObject = {
+	$scope.ratingsObject1 = {
 
         iconOn: 'ion-ios-star',    //Optional
         iconOff: 'ion-ios-star-outline',   //Optional
@@ -214,13 +214,49 @@ angular.module('starter.controllers', ['firebase','ngOpenFB', 'ionic-ratings'])
 
       $scope.ratingsCallback = function(rating, index) {
 				$ionicPopup.alert({
-					title: 'Alerta',
-					template: 'Teste'
-				})
+					title: 'Alerta avalicao',
+					template: 'entro no post'
+				});
+				$http.post("http://172.17.0.13:3000/avaliacaoDoAmigo",
+						{ params: {
+						"amigoEmail": $rootScope.rootScopeEmailAmigo,
+							"avaliacao": rating,
+							"userLogged": $scope.session.email
+						 }
+					 })
+
         console.log('Selected rating is : ', rating, ' and the index is : ', index);
       };
+//############# Rating do pra ler ##############################
+$scope.buscarmediaavaliacao = function(){
+	$http.post("http://172.17.0.13:3000/buscarmedia",
+		 { params: {
+		 "amigoEmail": $rootScope.rootScopeEmailAmigo,
+		 "userLogged": $scope.session.email
+	 }
+ }).success(function(response){});
+$scope.ratingsObject2 = {
 
-	//########################Fim#######################
+
+			iconOn: 'ion-ios-star',    //Optional
+			iconOff: 'ion-ios-star-outline',   //Optional
+			iconOnColor: 'rgb(200, 200, 100)',  //Optional
+			iconOffColor:  'rgb(200, 100, 100)',    //Optional
+			rating: response, //Optional
+			minRating:0,    //Optional
+			readOnly: true, //Optional
+
+			callback: function(rating, index) {    //Mandatory
+				$scope.ratingsCallback(rating, index);
+			}
+		};
+
+		$scope.ratingsCallback = function(rating, index) {
+
+			console.log('Selected rating is : ', rating, ' and the index is : ', index);
+		};
+	}
+	//########################Fim#######################/*/
 	$scope.abrirLivroAmigo = function(idLivro) {
 		$rootScope.rootScopeIdLivro = idLivro;
 		$state.go('menu.livrando_meus_amigos_amigo_livros_clicado');
@@ -2420,7 +2456,36 @@ $scope.buscarLikes = function(id){
 					$ionicLoading.hide();
 				});
 	}
+	//############# Rating do pra ler ##############################
+	/*$scope.buscarmediaavaliacao = function(){
+/*		$http.post("http://172.17.0.13:3000/buscarmedia",
+			 { params: {
+			 "amigoEmail": $rootScope.rootScopeEmailAmigo,
+			 "userLogged": $scope.session.email
+		 }
+	 }).success(function(response){});/
+	$scope.ratingsObject2 = {
 
+
+				iconOn: 'ion-ios-star',    //Optional
+				iconOff: 'ion-ios-star-outline',   //Optional
+				iconOnColor: 'rgb(200, 200, 100)',  //Optional
+				iconOffColor:  'rgb(200, 100, 100)',    //Optional
+				rating: 3, //Optional
+				minRating: 0,    //Optional
+				readOnly: true, //Optional
+
+				callback: function(rating, index) {    //Mandatory
+					$scope.ratingsCallback(rating, index);
+				}
+			};
+
+			$scope.ratingsCallback = function(rating, index) {
+
+				console.log('Selected rating is : ', rating, ' and the index is : ', index);
+			};
+		}
+		//########################Fim#######################*/
 
 })
 
