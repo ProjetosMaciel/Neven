@@ -551,6 +551,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
+  .state('menu.livrando_meus_livros_cadastrar', {
+    url: '/livrando_meus_livros_cadastrar',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/menu-livrando_meus_livros_cadastrar.html',
+		controller: 'MeusLivrosCtrl'
+      }
+    }
+  })
   .state('menu.livrando_meus_livros_adicionar', {
     url: '/livrando_meus_livros_adicionar',
     views: {
@@ -760,6 +769,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             }
 	         }
     })
+
+    .state('menu_livrarias.livrarias_anunciar', {
+        url: '/livrarias_anunciar',
+  	  views: {
+  		'menuContent': {
+  			templateUrl: 'templates/livrarias_anunciar.html',
+  			controller: 'LivrariasMeusLivrosCtrl'
+              }
+  	         }
+      })
+      .state('menu_livrarias.livrarias_anunciar_livro', {
+          url: '/livrarias_anunciar_livro',
+    	  views: {
+    		'menuContent': {
+    			templateUrl: 'templates/livrarias_anunciar_livro.html',
+    			controller: 'LivrariasMeusLivrosCtrl'
+                }
+    	         }
+        })
     .state('menu_livrarias.livrarias_meus_livros_livro', {
         url: '/livrarias_meus_livros_livro',
   	  views: {

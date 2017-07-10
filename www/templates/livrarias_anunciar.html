@@ -1,0 +1,57 @@
+<ion-view view-title="Anunciar">
+	<ion-content class="padding">
+		<div class="centerDiv">
+
+			<p>Localize o livro que dejesa anunciar</p>
+
+			<label class="item item-input item-select">
+        <div class="input-label">Filtre aqui</div>
+        <select ng-model="selecao">
+          <option value="nome">Nome</option>
+          <option value="autor">Autor</option>
+          <option value="editora">Editora</option>
+          <option value="ano">Ano</option>
+        </select>
+      </label>
+			<br>
+
+			<table width="100%">
+		 	 <tr>
+				 <td>
+			 		 <label class="item item-input">
+			 				 <i class="icon ion-ios-search placeholder-icon"></i>
+			 				 <input type="search" placeholder="Digite aqui..." ng-model="textoBusca">
+			 		 </label>
+				 <td>
+				 <td>
+		 		 	<button class="button button-positive ion-android-search" style="vertical-align: middle;" ng-click="pesquisarLivro(textoBusca, selecao)"></button>
+				 <td>
+			 </tr>
+		 </table>
+
+			<br>
+			<ion-list ng-repeat="livro in livros">
+				<ion-item ng-click="anunciarLivroClicado(livro.id)" type="item-text-wrap">
+					<table>
+						<tr>
+							<td rowspan="2" style="padding-right: 10px;vertical-align: middle;">
+								<ion-thumbnail item-left>
+									<img height="100" ng-src="{{livro.livfoto}}">
+								</ion-thumbnail>
+							</td>
+							<td class="item-text-wrap" height="50" style="vertical-align: bottom;text-align: left;">
+								<h2>{{livro.livnome}}</h2>
+							</td>
+						</tr>
+						<tr>
+							<td height="50" style="vertical-align: top;text-align: left;">
+								<p>{{livro.livautor}}</p>
+							</td>
+						</tr>
+					</table>
+				</ion-item>
+			</ion-list>
+			<br><br>
+		</div>
+	</ion-content>
+</ion-view>

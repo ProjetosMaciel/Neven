@@ -18,30 +18,58 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-      <!--  <ion-item type="item-text-wrap" style="text-align:center;" ng-init="atualizarPerfil()">
+        <ion-item type="item-text-wrap" ng-init="atualizarPerfil()">
           <img class="foto-perfil-menu" src="img/user.png" ng-src="{{user.foto}}">
           <h2>{{session.username}}</h2>
-          <p>{{session.email}}</p>
-        </ion-item>-->
+          <p style="color:black;">{{session.email}}</p>
+        </ion-item>
         <ion-item menu-close href="#/menu/livrando_linha_do_tempo">
-          <i class="icon ion-android-home menu-icons" style="padding-right: 5px;"></i>
-		       Linha do tempo
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-home menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Linha do tempo</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close href="#/menu/livrando_perfil">
-          <i class="icon ion-android-contact menu-icons" style="padding-right: 5px;"></i>
-	         Perfil
+           <table>
+             <tr>
+               <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-contact menu-icons"></i></td>
+               <td style="padding-left: 5px;vertical-align:middle;">Perfil</td>
+             </tr>
+           </table>
+        </ion-item>
+        <ion-item menu-close href="#/menu/livrando_meus_livros_lista_compartilhamento">
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-list menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Meus dados</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close href="#/menu/livrando_meus_amigos">
-          <i class="icon ion-android-contacts menu-icons" style="padding-right: 5px;"></i>
-	         Meus amigos
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-contacts menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Meus amigos</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close href="#/menu/livrando_meus_livros">
-          <i class="icon ion-ios-book menu-icons" style="padding-right: 5px;"></i>
-	         Meus livros
+           <table>
+             <tr>
+               <td style="vertical-align:middle;width:30px;"><i class="icon ion-ios-book menu-icons"></i></td>
+               <td style="padding-left: 5px;vertical-align:middle;">Meus livros</td>
+             </tr>
+           </table>
         </ion-item>
         <ion-item menu-close href="#/menu/livrando_livros_desejados">
-          <i class="icon ion-android-clipboard menu-icons" style="padding-right: 5px;"></i>
-	         Livros desejados
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-clipboard menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Livros desejados</td>
+            </tr>
+          </table>
         </ion-item>
         <!--<ion-item menu-close href="#/menu/livrando_emprestar">
           <i class="icon ion-clock"></i>
@@ -60,20 +88,36 @@
 	         Procurar pessoas
         </ion-item>-->
 	      <ion-item menu-close href="#/menu/livrando_procurar_livros">
-          <i class="icon ion-android-search menu-icons" style="padding-right: 5px;"></i>
-          Procurar livros
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-search menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Procurar livros</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close href="#/menu/livrando_livrarias">
-          <i class="icon ion-bag menu-icons" style="padding-right: 5px;"></i>
-		       Livrarias
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-bag menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Livrarias</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close href="#/menu/livrando_conversas">
-          <i class="icon ion-android-chat menu-icons" style="padding-right: 5px;"></i>
-		       Conversas
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-chat menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Conversas</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close ng-click="logout()">
-          <i class="icon ion-log-out menu-icons" style="padding-right: 5px;"></i>
-  			   Sair
+           <table>
+             <tr>
+               <td style="vertical-align:middle;width:30px;"><i class="icon ion-log-out menu-icons"></i></td>
+               <td style="padding-left: 5px;vertical-align:middle;">Sair</td>
+             </tr>
+           </table>
         </ion-item>
       </ion-list>
     </ion-content>

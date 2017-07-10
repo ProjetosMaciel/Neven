@@ -28,10 +28,18 @@
     </div>
 
     <div class="item item-body">
-
-      <p>
-        {{publicacao.comentario}}
-      </p>
+      <table>
+        <tr>
+          <td style="padding-right: 10px;vertical-align: middle;">
+            <ion-thumbnail item-left>
+              <img height="100" ng-src="{{publicacao.fotoLivro}}">
+            </ion-thumbnail>
+          </td>
+          <td style="vertical-align: top;text-align: left;">
+            <p>{{publicacao.comentario}}</p>
+          </td>
+        </tr>
+      </table>
       <!--<p>
         <a ng-init="buscarLikes(publicacao.id)" ng-click="like(publicacao.id)" class="subdued">{{qtdLikes}} Like</a>
         <a class="subdued">5 Comments</a>

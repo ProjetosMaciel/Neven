@@ -1,0 +1,22 @@
+<ion-view view-title="Anunciar">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarLivroAdicionarClicado()">
+
+			<h2>{{livroClicado.livnome}}</h2>
+				<img height="272" ng-src="{{livroClicado.livfoto}}">
+				<br><br>
+				<div>
+					<p>Descrição</p>
+				 <label class="item item-input">
+					 <textarea rows="4" type="text" placeholder="Descrição..." ng-model="descricao"></textarea>
+				 </label>
+			 </div>
+			 <div width="100%" align="right">
+				 <button class="button button-positive" ng-click="anunciarLivro(livroClicado.livfoto, rootScopeIdLivroClicado, descricao)">
+					 Salvar
+				 </button>
+			 </div>
+
+		</div>
+	</ion-content>
+</ion-view>

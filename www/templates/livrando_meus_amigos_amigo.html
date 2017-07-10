@@ -4,15 +4,17 @@
 
   	<h2>{{rootScopeNomeAmigo}}</h2>
   	<img class="foto-perfil" src="img/user.png" ng-src="{{amigos.foto}}">
-    <div>
-    <ionic-ratings ratingsobj='ratingsObject1' index='0'></ionic-ratings>
-  </div>
 
     <div width="100%" align="right">
       <button class="button  button-positive" ng-click="removerPessoa()">
         Desfazer amizade
       </button>
     </div>
+    <p style="text-align:center;">Mensagem do usuario:</p>
+    <ion-item class="item-text-wrap" >
+    {{amigos.mensagem}}
+  </ion-item>
+  <br>
     <ion-list  class="manual-list-fullwidth" style="text-align:left;">
       <ion-item class="item-icon-left" >
         <i class="icon ion-android-home"></i>Cidade: {{amigos.cidade}}
@@ -29,13 +31,13 @@
        <ion-item class="item-icon-left" >
          <i class="icon ion-email"></i> E-mail: {{amigos.email}}
        </ion-item>
-
-    </br>
-    <p >Mensagem do usuario:</p>
-    <ion-item class="item-text-wrap" >
-    {{amigos.mensagem}}
+  <ion-item class="item-icon-left" >
+    <i class="icon ion-trophy"></i>Reputação: {{reputacao}}
   </ion-item>
 </ion-list>
+<br>
+<p style="text-align:center;">Avalie seu amigo</p>
+<ionic-ratings ratingsobj='ratingsObject' index='0'></ionic-ratings>
 <br><br><br><br><br>
   </div>
 

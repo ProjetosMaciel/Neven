@@ -23,12 +23,20 @@
 	         Cadastrar livros
         </ion-item>-->
         <ion-item menu-close href="#/menu_livrarias/livrarias_meus_livros">
-          <i class="icon ion-ios-book menu-icons" style="padding-right: 5px;"></i>
-	         Meus livros
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-ios-book menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Meus livros</td>
+            </tr>
+          </table>
         </ion-item>
         <ion-item menu-close ng-click="logout()">
-          <i class="icon ion-log-out menu-icons" style="padding-right: 5px;"></i>
-  			   Sair
+          <table>
+            <tr>
+              <td style="vertical-align:middle;width:30px;"><i class="icon ion-log-out menu-icons"></i></td>
+              <td style="padding-left: 5px;vertical-align:middle;">Sair</td>
+            </tr>
+          </table>
         </ion-item>
       </ion-list>
     </ion-content>

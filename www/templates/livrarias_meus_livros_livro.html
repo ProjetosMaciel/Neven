@@ -4,16 +4,22 @@
 
 			<h2>{{livroClicadoLivraria.livnome}}</h2>
 			<img height="272" ng-src="{{livroClicadoLivraria.livfoto}}">
-			<!--<div width="100%" align="right">
-	      <button class="button button-block ion-trash-a button-clear button-dark" ng-click="removerLivro(rootScopeIdLivroClicado)">
-	        Remover
-	      </button>
-	    </div>-->
-			<div width="100%" align="right">
-	      <button class="button button-positive" ng-click="removerLivro(rootScopeIdLivroClicado)">
-	        Remover
-	      </button>
-	    </div>
+			<table width="100%" style="padding: 10px;">
+	      <tr>
+					<td width="50%">
+						<button width="100%" style="margin-right: 5px;" class="button button-positive button-block"
+						ng-click="anunciarLivroClicado(rootScopeIdLivroClicado)">
+							Anunciar
+			      </button>
+					</td>
+					<td width="50%">
+						<button width="100%" style="margin-left: 5px;" class="button button-positive button-block"
+						ng-click="removerLivro(rootScopeIdLivroClicado)">
+							Remover
+			      </button>
+					</td>
+				</tr>
+	    </table>
 		  <ion-list style="text-align:left;">
 		    <ion-item>
 					<table style="width:100%;">
