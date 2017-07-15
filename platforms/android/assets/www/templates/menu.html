@@ -19,7 +19,9 @@
     <ion-content>
       <ion-list>
         <ion-item type="item-text-wrap" ng-init="atualizarPerfil()">
-          <img class="foto-perfil-menu" src="img/user.png" ng-src="{{user.foto}}">
+          <div width="100%" style="text-align:center;">
+            <img width="150px" src="img/logo1.png" ng-src="{{user.foto}}">
+          </div>
           <h2>{{session.username}}</h2>
           <p style="color:black;">{{session.email}}</p>
         </ion-item>

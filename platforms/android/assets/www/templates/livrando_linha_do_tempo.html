@@ -24,7 +24,7 @@
     <div class="item item-avatar">
       <img src="img/user.png" ng-src="{{publicacao.foto}}">
       <h2>{{publicacao.username}}</h2>
-      <p>01/07/2017</p>
+      <p>{{publicacao.createdAt | date:'dd/MM/yyyy'}}</p>
     </div>
 
     <div class="item item-body">
@@ -35,7 +35,7 @@
               <img height="100" ng-src="{{publicacao.fotoLivro}}">
             </ion-thumbnail>
           </td>
-          <td style="vertical-align: top;text-align: left;">
+          <td style="vertical-align: top;text-align: left;width:100%;">
             <p>{{publicacao.comentario}}</p>
           </td>
         </tr>

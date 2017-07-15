@@ -555,7 +555,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/livrando_meus_livros_cadastrar',
     views: {
       'menuContent': {
-        templateUrl: 'templates/menu-livrando_meus_livros_cadastrar.html',
+        templateUrl: 'templates/livrando_meus_livros_cadastrar.html',
 		controller: 'MeusLivrosCtrl'
       }
     }
@@ -754,6 +754,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
     	         }
         })
+        .state('menu_admin.admin_livrarias_clicada_editar', {
+            url: '/admin_livrarias_clicada_editar',
+      	  views: {
+      		'menuContent': {
+      			templateUrl: 'templates/admin_livrarias_clicada_editar.html',
+      			controller: 'AdminLivrariasCtrl'
+                  }
+      	         }
+          })
   .state('menu_livrarias', {
     url: '/menu_livrarias',
     abstract: true,

@@ -646,177 +646,15 @@ $scope.buscarmediaavaliacao = function(){
 						 });
 	}
 
-	//inicio
-
-
-		/*$ionicPopup.alert({
-		 title: 'Alerta teste',
-		 template: '$scope.kkk '+ $scope.kkk
-		});
-		$ionicPopup.alert({
-		 title: 'Alerta teste',
-		 template: '$scope.kkk.avaliacao '+ $scope.kkk.avaliacao
-	 });*/
-	 /*if ( $scope.kkk.avaliacao == "0") {
-
-	   $ionicPopup.alert({
-	    title: 'Alerta teste',
-	    template: 'Qual sera'+$scope.teste
-	   });
-	  $scope.ratingsObject2 = {
-
-
-	        iconOn: 'ion-ios-star',    //Optional
-	        iconOff: 'ion-ios-star-outline',   //Optional
-	        iconOnColor: 'rgb(200, 200, 100)',  //Optional
-	        iconOffColor:  'rgb(200, 100, 100)',    //Optional
-	        rating: 0 , //Optional
-	        minRating: 0,    //Optional
-	        readOnly: true, //Optional
-
-	        callback: function(rating, index) {    //Mandatory
-	          $scope.ratingsCallback(rating, index);
-	        }
-	      };
-
-	      $scope.ratingsCallback = function(rating, index) {
-
-	        console.log('Selected rating is : ', rating, ' and the index is : ', index);
-	      };
-	    }
-
-	else if  ( $scope.kkk.avaliacao == "1") {
-	  $ionicPopup.alert({
-	   title: 'Alerta teste',
-	   template: 'Qual sera'+$scope.teste
-	  });
-	  $scope.ratingsObject2 = {
-
-
-	        iconOn: 'ion-ios-star',    //Optional
-	        iconOff: 'ion-ios-star-outline',   //Optional
-	        iconOnColor: 'rgb(200, 200, 100)',  //Optional
-	        iconOffColor:  'rgb(200, 100, 100)',    //Optional
-	        rating: 1 , //Optional
-	        minRating: 0,    //Optional
-	        readOnly: true, //Optional
-
-	        callback: function(rating, index) {    //Mandatory
-	          $scope.ratingsCallback(rating, index);
-	        }
-	      };
-
-	      $scope.ratingsCallback = function(rating, index) {
-
-	        console.log('Selected rating is : ', rating, ' and the index is : ', index);
-	      };
-	    }
-
-	else if  ( $scope.kkk.avaliacao == 2) {
-		$ionicPopup.alert({
-	   title: 'Alerta teste',
-	   template: 'Qual sera KKK ' + $scope.kkk.avaliacao
-	  });
-	  $scope.ratingsObject2 = {
-
-
-	        iconOn: 'ion-ios-star',    //Optional
-	        iconOff: 'ion-ios-star-outline',   //Optional
-	        iconOnColor: 'rgb(200, 200, 100)',  //Optional
-	        iconOffColor:  'rgb(200, 100, 100)',    //Optional
-	        rating: 2, //Optional
-	        minRating: 0,    //Optional
-	        readOnly: true, //Optional
-
-	        callback: function(rating, index) {    //Mandatory
-	          $scope.ratingsCallback(rating, index);
-	        }
-	      };
-
-	      $scope.ratingsCallback = function(rating, index) {
-
-	        console.log('Selected rating is : ', rating, ' and the index is : ', index);
-	      };
-	    }
-
-	else if  ( response == "3") {
-	  $scope.ratingsObject2 = {
-
-
-	        iconOn: 'ion-ios-star',    //Optional
-	        iconOff: 'ion-ios-star-outline',   //Optional
-	        iconOnColor: 'rgb(200, 200, 100)',  //Optional
-	        iconOffColor:  'rgb(200, 100, 100)',    //Optional
-	        rating: 3, //Optional
-	        minRating: 0,    //Optional
-	        readOnly: true, //Optional
-
-	        callback: function(rating, index) {    //Mandatory
-	          $scope.ratingsCallback(rating, index);
-	        }
-	      };
-
-	      $scope.ratingsCallback = function(rating, index) {
-
-	        console.log('Selected rating is : ', rating, ' and the index is : ', index);
-	      };
-	    }
-
-	else if  ( response == "4") {
-	  $scope.ratingsObject2 = {
-
-
-	        iconOn: 'ion-ios-star',    //Optional
-	        iconOff: 'ion-ios-star-outline',   //Optional
-	        iconOnColor: 'rgb(200, 200, 100)',  //Optional
-	        iconOffColor:  'rgb(200, 100, 100)',    //Optional
-	        rating: 4 , //Optional
-	        minRating: 0,    //Optional
-	        readOnly: true, //Optional
-
-	        callback: function(rating, index) {    //Mandatory
-	          $scope.ratingsCallback(rating, index);
-	        }
-	      };
-
-	      $scope.ratingsCallback = function(rating, index) {
-
-	        console.log('Selected rating is : ', rating, ' and the index is : ', index);
-	      };
-	    }
-
-	else if  ( response == "5") {
-	  $scope.ratingsObject2 = {
-
-
-	        iconOn: 'ion-ios-star',    //Optional
-	        iconOff: 'ion-ios-star-outline',   //Optional
-	        iconOnColor: 'rgb(200, 200, 100)',  //Optional
-	        iconOffColor:  'rgb(200, 100, 100)',    //Optional
-	        rating: 5 , //Optional
-	        minRating: 0,    //Optional
-	        readOnly: true, //Optional
-
-	        callback: function(rating, index) {    //Mandatory
-	          $scope.ratingsCallback(rating, index);
-	        }
-	      };
-
-	      $scope.ratingsCallback = function(rating, index) {
-
-	        console.log('Selected rating is : ', rating, ' and the index is : ', index);
-	      };
-	    }*/
-	//fim
-
 	$scope.ratingsObject = {
 
 
 					iconOn: 'ion-ios-star',    //Optional
 					iconOff: 'ion-ios-star-outline',   //Optional
 					iconOnColor: 'rgb(200, 200, 100)',  //Optional
-					iconOffColor:  'rgb(200, 100, 100)',    //Optional
-					rating: $rootScope.rootScopeStars, //Optional
+					iconOffColor:  'rgb(0, 0, 0)',    //Optional
+          rating: 2,
+				//	rating: $rootScope.rootScopeStars, //Optional
 					minRating: 0,    //Optional
 					readOnly: false, //Optional
 
@@ -2093,21 +1931,22 @@ $scope.buscarmediaavaliacao = function(){
 						}
 						})
 			.success(function(response) {
+				$ionicLoading.hide();
 				if (response == "ERROR"){
 					$ionicPopup.alert({
 					 title: 'Alerta',
 					 template: 'Livro não encontrado!' });
+					 $ionicLoading.hide();
 				}
-				else if (response){
+				else {
 					$scope.infLivro = response;
 					$scope.infLivroNome = $scope.infLivro.title;
 					$scope.infLivroAutor = $scope.infLivro.authors.toString();
 					$scope.infLivroEditora = $scope.infLivro.publisher;
 					$scope.infLivroAno = parseInt($scope.infLivro.publishedDate);
-
-
 					$scope.infLivroGenero = $scope.infLivro.categories.toString();
 					$scope.infLivroFoto = $scope.infLivro.imageLinks.smallThumbnail;
+					$ionicLoading.hide();
 				}
 										/*if (response == "FOUND") {
 											$ionicPopup.alert({
@@ -2119,7 +1958,7 @@ $scope.buscarmediaavaliacao = function(){
 	                     title: 'NOT_FOUND',
 	                     template: 'NOT_FOUND' });
 										}*/
-                    $ionicLoading.hide();
+
             })
             .error(function(response) {
 
@@ -2131,7 +1970,7 @@ $scope.buscarmediaavaliacao = function(){
 		$ionicLoading.show({
 						template: 'Cadastrando...'
 				});
-		$http.post("http://172.17.0.1:3000/cadastrarLivro",
+		$http.post("http://172.17.0.13:3000/cadastrarLivro",
 			{ params: {
 						"isbn": $scope.data.isbn,
 						"foto": foto,
@@ -2332,6 +2171,10 @@ $http.post("http://172.17.0.13:3000/atualizarPerfil",
 					})
 		.success(function(response) {
 									$scope.user = response;
+									/*$scope.editarPerfilNome = $scope.user.username;
+									$scope.editarPerfilCidade = $scope.user.cidade;
+									$scope.editarPerfilDataNascimento = $scope.user.DNascimento;
+									$scope.editarPerfilDescricao = $scope.user.mensagem;*/
 									if($scope.user.id != null){
 										$scope.idFacebook = 'facebook';
 									}
@@ -3042,6 +2885,51 @@ $scope.buscarLikes = function(id){
 						})
 						.error(function(response) {
 									 $ionicLoading.hide();
+						});
+	}
+
+	$scope.buscarInfoLivrariaEditar = function(){
+		$http.post("http://172.17.0.13:3000/buscarInfoLivrariaEditar",
+			{ params: {
+						"livraria": $rootScope.rootScopeLivrariaClicada}
+						})
+			.success(function(response) {
+							$scope.livraria = response;
+							$scope.emailLivraria = $scope.livraria.email;
+							$scope.nomeLivraria = $scope.livraria.username;
+							$ionicLoading.hide();
+						})
+			.error(function(response) {
+							$ionicLoading.hide();
+						});
+	}
+	$scope.editarLivraria = function(){
+		$state.go('menu_admin.admin_livrarias_clicada_editar');
+	}
+	$scope.editarLivrariaSalvar = function(nomeLivraria){
+		/*$ionicPopup.alert({
+			title: 'nomeLivraria',
+			content: nomeLivraria
+		});*/
+		$http.post("http://172.17.0.13:3000/editarLivrariaSalvar",
+			{ params: {
+						"nomeLivraria": nomeLivraria,
+						"emailLivraria": $scope.rootScopeLivrariaClicada}
+						})
+			.success(function(response) {
+							if (response == "SUCCESS") {
+								$ionicPopup.alert({
+								 title: 'Sucesso',
+								 template: 'Livraria editada com sucesso!'
+							 }).then(function(res) {
+								 $scope.buscarLivrariaClicada();
+								 $ionicLoading.hide();
+								 $state.go('menu_admin.admin_livrarias_clicada');
+								});
+							}
+						})
+			.error(function(response) {
+							$ionicLoading.hide();
 						});
 	}
 	$scope.removerLivraria = function(livraria){
@@ -3963,7 +3851,7 @@ $scope.buscarLikes = function(id){
 
 })
 
-.controller('Livrando_Editar_Perfil', function($scope, $stateParams, IonicLogin, $ionicPopup,$http, $rootScope, $state, $ionicLoading) {
+.controller('Livrando_Editar_Perfil', function($scope, $stateParams, IonicLogin, $ionicPopup,$http, $rootScope, $state, $ionicLoading, $filter) {
 
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -3974,16 +3862,38 @@ $scope.buscarLikes = function(id){
   $scope.logout = function(){
        IonicLogin.logout($scope.session.email);
   }
+	$scope.atualizarPerfil = function(){
 
-	$scope.SalvarEdi = function(){
+	$http.post("http://172.17.0.13:3000/atualizarPerfil",
+			{ params: {
+						"userEmail": $scope.session.email
+						}
+						})
+			.success(function(response) {
+										$scope.user = response;
+										$scope.editarPerfilNome = $scope.user.username;
+										$scope.editarPerfilCidade = $scope.user.cidade;
+										$scope.editarPerfilDataNascimento = $filter('date')($scope.user.DNascimento, "dd/MM/yyyy");
+
+										$scope.editarPerfilDescricao = $scope.user.mensagem;
+										if($scope.user.id != null){
+											$scope.idFacebook = 'facebook';
+										}
+										$ionicLoading.hide();
+						})
+			.error(function(response) {
+					$ionicLoading.hide();
+				});
+	}
+	$scope.SalvarEdi = function(nome, cidade, dataNascimento, descricao){
 
     $http.post("http://172.17.0.13:3000/editarperfil",
       { params: {
-        "Usernome": $scope.data.nome,
-        "UserDNascimento": $scope.data.dataNascimento,
+        "Usernome": nome,
+        "UserDNascimento": dataNascimento,
         "userLoged": $scope.session.email,
-        "UserCidade":  $scope.data.cidade,
-			   "UserMensagem":  $scope.data.UserMensagem}
+        "UserCidade":  cidade,
+			   "UserMensagem":  descricao}
       })
     .success(function(response) {
 

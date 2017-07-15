@@ -1,0 +1,19 @@
+<ion-view view-title="Editar livraria">
+	<ion-content class="padding">
+		<div class="centerDiv" ng-init="buscarInfoLivrariaEditar()">
+			<br><br>
+
+			<form name="loginForm">
+				<div class="show-list-numbers-and-dots">
+		      <p style="color:#000000;text-align: left;">Nome:</p>
+		    </div>
+		    <label class="item item-input">
+		      <input type="text" required placeholder="Nome da livraria..." ng-model="nomeLivraria" >
+		    </label>
+			</form>
+
+			<button class="button button-positive button-block" ng-disabled="!loginForm.$valid" ng-click="editarLivrariaSalvar(nomeLivraria)">Salvar</button>
+			<br><br>
+		</div>
+	</ion-content>
+</ion-view>

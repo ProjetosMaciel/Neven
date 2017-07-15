@@ -1,7 +1,8 @@
-<ion-view view-title="Login" hide-back-button="true" can-swipe-back="false">
+<!--<ion-view view-title="Login" hide-back-button="true" can-swipe-back="false">
   <ion-content class="padding">
 
     <div id="divLogin">
+      <form name="loginForm">
 
     <div  class="show-list-numbers-and-dots">
       <p style="color:#000000;">Nome completo:</p>
@@ -17,7 +18,6 @@
         <input  required type="email" placeholder="Informe seu e-mail" ng-model="data.email">
 
       </label>
-        <!--<button class="button button-clear button-positive" ng-click="mailNewCode()">Verificar email</button>-->
 
     <div class="show-list-numbers-and-dots">
       <p style="color:#000000;">Senha:</p>
@@ -25,9 +25,43 @@
     <label class="item item-input">
       <input required type="password" placeholder="Informe sua senha" ng-model="data.password">
     </label>
-
-  <button class="button button-positive button-block" ng-click="signUp()">Cadastrar</button>
+  </form>
+  <button class="button button-positive button-block" ng-disabled="!loginForm.$valid" ng-click="signUp()">Cadastrar</button>
 
 </div>
+  </ion-content>
+</ion-view>
+-->
+<ion-view view-title="Login" hide-back-button="true" can-swipe-back="false">
+  <ion-content class="padding" id="login-background">
+
+    <br>
+      <form name="loginForm">
+
+        <div  class="show-list-numbers-and-dots">
+          <p style="color:white;">Nome completo:</p>
+        </div>
+        <label class="item item-input">
+          <input type="text" required placeholder="Informe seu nome completo" ng-model="data.nome">
+        </label>
+        <br>
+        <div  class="show-list-numbers-and-dots">
+          <p style="color:white;">E-mail:</p>
+        </div>
+        <label class="item item-input">
+          <input id="emailInput" type="email" required placeholder="Informe seu e-mail" ng-model="data.email">
+        </label>
+        <br>
+        <div class="show-list-numbers-and-dots">
+          <p style="color:white;">Senha:</p>
+        </div>
+        <label class="item item-input">
+          <input required type="password" placeholder="Informe sua senha" ng-model="data.password">
+        </label>
+        <br>
+      </form>
+      <button class="button button-positive button-block" ng-disabled="!loginForm.$valid" ng-click="signUp()">Cadastrar</button>
+    <!--<a ui-sref="login" class="button button-positive button-block">Voltar</a>-->
+
   </ion-content>
 </ion-view>
