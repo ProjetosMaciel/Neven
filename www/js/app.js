@@ -488,6 +488,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+    .state('menu.livrando_meus_livros_entregas', {
+        url: '/livrando_meus_livros_entregas',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/livrando_meus_livros_entregas.html',
+            controller: 'MeusLivrosCtrl'
+          }
+        }
+      })
+    .state('menu.livrando_meus_livros_receber', {
+        url: '/livrando_meus_livros_receber',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/livrando_meus_livros_receber.html',
+            controller: 'MeusLivrosCtrl'
+          }
+        }
+      })
     .state('menu.livrando_meus_livros_lista_compartilhamento', {
         url: '/livrando_meus_livros_lista_compartilhamento',
         views: {
