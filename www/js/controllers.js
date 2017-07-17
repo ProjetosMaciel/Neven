@@ -663,7 +663,7 @@ $scope.buscarmediaavaliacao = function(){
 											iconOff: 'ion-ios-star-outline',   //Optional
 											iconOnColor: 'rgb(200, 200, 100)',  //Optional
 											iconOffColor:  'rgb(0, 0, 0)',    //Optional
-									//    rating: 2,
+									//   rating: 2,
 										rating: j, //Optional
 											minRating: 0,    //Optional
 											readOnly: false, //Optional
@@ -686,23 +686,6 @@ $scope.buscarmediaavaliacao = function(){
 									};
 
                   //***********Teste popup************
-									$ionicModal.fromTemplateUrl('templates/avaliacao.html', {
-										scope: $scope
-								 }).then(function(modal) {
-									 $scope.modal = modal;
-								 });
-
-								 // Triggered in the login modal to close it
-								 $scope.closeFoto = function() {
-									 $scope.modal.hide();
-								 };
-
-								 // Open the login modal
-								 $scope.avaliar = function() {
-
-											$scope.modal.show();
-
-								 };
 
 									//**************
 
