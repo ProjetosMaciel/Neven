@@ -1,0 +1,34 @@
+<ion-view view-title="Livros a entregar" can-swipe-back="false" cache-view="false" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <div class="centerDiv" ng-init="buscarLivrosEntregas()">
+
+      <p>Livros pendentes para serem entregues:</p>
+      <ion-list ng-repeat="r in result">
+    		<ion-item style="text-align:left;" ng-click="entregarLivro(r.id, r.ltuserAdquirirEmail, r.livnome, r.status, r.livroId, r.pontoencontroId)" class="item-text-wrap">
+    			<table>
+    				<tr>
+              <td>
+                <ion-thumbnail item-left>
+                  <img height="100" ng-src="{{r.livfoto}}">
+                </ion-thumbnail>
+              </td>
+    					<td style="padding-left: 10px;vertical-align: middle;">
+    						<p>A ser entregue para <b>{{r.ltuserAdquirirEmail}}</b></p>
+    					</td>
+    				</tr>
+    			</table>
+    		</ion-item>
+    	</ion-list>
+
+    </div>
+  </ion-content>
+  <ion-tabs class="tabs-positive tabs-striped">
+      <ion-tab icon-on="ion-arrow-graph-down-left" icon-off="ion-arrow-graph-down-left" href="#/menu/livrando_meus_livros_receber">
+      </ion-tab>
+      <ion-tab icon-on="ion-arrow-graph-up-right" icon-off="ion-arrow-graph-up-right" href="#/menu/livrando_meus_livros_entregas">
+      </ion-tab>
+  </ion-tabs>
+</ion-view>

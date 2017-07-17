@@ -60,7 +60,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB', 'ionic-ratings'])
 
 })
 
-.controller('MeusAmigosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
+.controller('MeusAmigosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope,$timeout,$ionicModal) {
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
@@ -274,7 +274,7 @@ else if  ( response == "5") {
 					$ionicLoading.hide();
 				});
 	}
-
+//euaki
 	$scope.abrirPessoa = function(nomeAmigo, emailAmigo){
 		$rootScope.rootScopeNomeAmigo = nomeAmigo;
 		$rootScope.rootScopeEmailAmigo = emailAmigo;
@@ -597,6 +597,28 @@ $scope.buscarmediaavaliacao = function(){
 		});
 
 	}
+//**************** Teste Tiemout*******************
+//10 seconds delay
+        $timeout( function(){
+            $scope.test1 = "<ionic-ratings ratingsobj='ratingsObject' index='0'></ionic-ratings>";
+        }, 4000 );
+
+        //time
+        $scope.time = 0;
+
+        //timer callback
+        var timer = function() {
+            if( $scope.time < 10000 ) {
+                $scope.time += 1000;
+                $timeout(timer, 1000);
+            }
+        }
+
+        //run!!
+        $timeout(timer, 1000);
+
+//***********************
+
 	$scope.buscarAmigoInformacoes = function(emailAmigo) {
 
 
@@ -619,7 +641,7 @@ $scope.buscarmediaavaliacao = function(){
 	             .error(function(response) {
 	 					$ionicLoading.hide();
 	             });
-
+//akitbm
 							 $http.post("http://172.17.0.13:3000/buscarAvaliacao",
 							 	 { params: {
 							 	 "amigoEmail": $rootScope.rootScopeEmailAmigo,
@@ -630,9 +652,60 @@ $scope.buscarmediaavaliacao = function(){
 							 	$scope.kkk = response;
 							 	if (response) {
 							 		$rootScope.rootScopeStars = parseInt($scope.kkk.avaliacao);
-									var qwerty = $rootScope.rootScopeStars;
+
 							 	}
 							});
+          var j= $rootScope.rootScopeStars;
+							$scope.ratingsObject = {
+
+
+											iconOn: 'ion-ios-star',    //Optional
+											iconOff: 'ion-ios-star-outline',   //Optional
+											iconOnColor: 'rgb(200, 200, 100)',  //Optional
+											iconOffColor:  'rgb(0, 0, 0)',    //Optional
+									//    rating: 2,
+										rating: j, //Optional
+											minRating: 0,    //Optional
+											readOnly: false, //Optional
+
+											callback: function(rating, index) {    //Mandatory
+												$scope.ratingsCallback(rating, index);
+											}
+
+									};
+
+									$scope.ratingsCallback = function(rating, index) {
+										$http.post("http://172.17.0.13:3000/avaliacaoDoAmigo",
+												{ params: {
+												"amigoEmail": $rootScope.rootScopeEmailAmigo,
+													"avaliacao": rating,
+													"userLogged": $scope.session.email
+												 }
+											 })
+										console.log('Selected rating is : ', rating, ' and the index is : ', index);
+									};
+
+                  //***********Teste popup************
+									$ionicModal.fromTemplateUrl('templates/avaliacao.html', {
+										scope: $scope
+								 }).then(function(modal) {
+									 $scope.modal = modal;
+								 });
+
+								 // Triggered in the login modal to close it
+								 $scope.closeFoto = function() {
+									 $scope.modal.hide();
+								 };
+
+								 // Open the login modal
+								 $scope.avaliar = function() {
+
+											$scope.modal.show();
+
+								 };
+
+									//**************
+
 
 							$http.post("http://172.17.0.13:3000/buscarmedia",
 								{ params: {
@@ -644,36 +717,12 @@ $scope.buscarmediaavaliacao = function(){
 									$scope.reputacao = response;
 								}
 						 });
-	}
 
-	$scope.ratingsObject = {
+        var a = "<ionic-ratings ratingsobj='ratingsObject' index='0'></ionic-ratings>";
+				document.getElementById('mostrar').innerHTML= a;
 
 
-					iconOn: 'ion-ios-star',    //Optional
-					iconOff: 'ion-ios-star-outline',   //Optional
-					iconOnColor: 'rgb(200, 200, 100)',  //Optional
-					iconOffColor:  'rgb(0, 0, 0)',    //Optional
-          rating: 2,
-				//	rating: $rootScope.rootScopeStars, //Optional
-					minRating: 0,    //Optional
-					readOnly: false, //Optional
-
-					callback: function(rating, index) {    //Mandatory
-						$scope.ratingsCallback(rating, index);
-					}
-
-			};
-
-			$scope.ratingsCallback = function(rating, index) {
-				$http.post("http://172.17.0.13:3000/avaliacaoDoAmigo",
-						{ params: {
-						"amigoEmail": $rootScope.rootScopeEmailAmigo,
-							"avaliacao": rating,
-							"userLogged": $scope.session.email
-						 }
-					 })
-				console.log('Selected rating is : ', rating, ' and the index is : ', index);
-			};
+			}
 })
 .controller('ProcurandoLivrosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
@@ -1614,6 +1663,10 @@ $scope.buscarmediaavaliacao = function(){
 			.success(function(response) {
 					response = response.slice().reverse();
 					$scope.result = response;
+
+					//$scope.lin1col1 = " quer seu livro ";
+					//$scope.lin1col2 = " que está disponível para ";
+					//$scope.lin1col3 = ".";
 					if ($scope.result.status == 'doacao') {
 						$scope.status = 'doação';
 					}
@@ -1626,13 +1679,14 @@ $scope.buscarmediaavaliacao = function(){
 					else if ($scope.result.status == 'venda') {
 						$scope.status = 'venda';
 					}
+
           $ionicLoading.hide();
             })
       .error(function(response) {
 					$ionicLoading.hide();
 				});
 	}
-	$scope.mostrarNotificacao = function(id, amigo, livroNome, status, livroId, poe){
+	$scope.entregarLivro = function(id, amigo, livroNome, status, livroId, poe){
 
 	 	$rootScope.rootScopeAmigoTroca = amigo;
 		$rootScope.rootScopeIdOutro = id;
@@ -1641,36 +1695,7 @@ $scope.buscarmediaavaliacao = function(){
 
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
 		if (status == "troca") {
-			//compartilhar o livro direto, sem cair outra notificações para o usuário
 			$state.go('menu.livrando_meus_livros_notificacoes_livros_troca');
-			/*$http.post("http://172.17.0.13:3000/verificarTroca",
-				{ params: {
-					"userLogged": $scope.session.email,
-					"amigo": amigo,
-					"livroId": livroId
-					}
-				})
-				.success(function(response) {
-					if (response == "NOT_FOUND") {
-							$ionicPopup.alert({
-							 title: 'NOT_FOUND',
-							 template: 'NOT_FOUND'
-						 });
-						$state.go('menu.livrando_meus_livros_notificacoes_livros_troca');
-	          $ionicLoading.hide();
-					}
-					else if (response == "FOUND") {
-						$ionicPopup.alert({
-						 title: 'FOUND',
-						 template: 'FOUND'
-						});
-
-						$ionicLoading.hide();
-					}
-        })
-	      .error(function(response) {
-						$ionicLoading.hide();
-					});*/
 		}
 		else if (status == "emprestimo") {
 			$ionicPopup.confirm({
@@ -1715,7 +1740,7 @@ $scope.buscarmediaavaliacao = function(){
 		else {
 			$ionicPopup.confirm({
 				title: 'Confirmação',
-				content: 'Deseja realmente compartilhar seu livro?',
+				content: 'Deseja realmente entregar seu livro?',
 				cancelText: 'Recusar',
 				okText: 'Aceitar'
 			}).then(function(res) {
@@ -1754,6 +1779,54 @@ $scope.buscarmediaavaliacao = function(){
 			});
 		}
 	}
+	$scope.mostrarNotificacao = function(id, amigo, livroNome, status, livroId, poe){
+
+	 	$rootScope.rootScopeAmigoTroca = amigo;
+		$rootScope.rootScopeIdOutro = id;
+		$rootScope.rootScopeIdOutroLivro = livroId;
+		$rootScope.rootScopeIdLivroNome = livroNome;
+
+		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
+			$ionicPopup.confirm({
+				title: 'Confirmação',
+				content: 'Deseja realmente compartilhar seu livro?',
+				cancelText: 'Recusar',
+				okText: 'Aceitar'
+			}).then(function(res) {
+				if(res) {
+					$http.post("http://172.17.0.13:3000/irParaEntregas",
+						{ params: {
+							"id": id,
+							"amigo": amigo,
+							"userLoged": $scope.session.email,
+							"livroId": livroId//,
+							//"status": status,
+							//"poe": poe
+							}
+						})
+						.success(function(response) {
+										if (response == "SUCCESS") {
+											$ionicPopup.alert({
+		                   title: 'Sucesso',
+		                   template: 'Agora você só precisa entregar seu livro!'
+										 }).then(function(res) {
+												$ionicLoading.hide();
+												$state.go('menu.livrando_meus_livros');
+										 });
+										}
+			            })
+			      .error(function(response) {
+										if (response == "ERROR") {
+											$ionicPopup.alert({
+		                   title: 'Alerta',
+		                   template: 'Algo deu errado!'
+										 });
+											$ionicLoading.hide();
+										}
+							});
+				}
+			});
+	}
 	$scope.buscarLivrosTroca = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
 		$http.post("http://172.17.0.13:3000/buscarLivrosTroca",
@@ -1770,91 +1843,73 @@ $scope.buscarmediaavaliacao = function(){
 					$ionicLoading.hide();
 				});
 	}
-	$scope.enviarNotificacaoTroca = function(id, amigo, idLivro, livroNome, idOutro, idOutroLivro, nomeLivro, poe){
-		/*$ionicPopup.alert({
-		 title: 'idLivro, amigo',
-		 template: idLivro + ", " + amigo
-	 });*/
-	 /*$ionicPopup.confirm({
-		 title: 'Confirmação',
-		 content: 'Você realmente quer esse livro?',
-		 cancelText: 'Não',
-		 okText: 'Sim'
-	 }).then(function(res) {
-		 if(res) {
-			 $scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-			 $http.post("http://172.17.0.13:3000/irParaConversa",
-				 { params: {
-							 "id": id,
-							 "userLogged": $scope.session.email,
-							 "donoEmail": amigo,
-							 "idLivro": idLivro
-							 }
-							 })
-				 .success(function(response) {
-								 if (response == "NOT_FOUND") {
-									 $ionicPopup.alert({
-	 									title: 'Sucesso',
-	 									template: 'Solicitação enviada com sucesso!'
-	 								}).then(function(res) {
-	 									IonicLogin.irParaConversa(dono);
-	 									$ionicLoading.hide();
-	 								});
-								 }
-								 else if (response == "FOUND") {
-									 $ionicPopup.alert({
-										 title: 'Alerta',
-										 template: 'Você já demostrou interesse nesse livro!'
-									 });
-									 $ionicLoading.hide();
-								 }
-							 })
-				 .error(function(response) {
-											$ionicLoading.hide();
-							 });
-		 }
-	 });*/
 
-	 $ionicPopup.confirm({
-		 title: 'Confirmação',
-		 content: 'Deseja realmente compartilhar seu livro?',
-		 cancelText: 'Recusar',
-		 okText: 'Aceitar'
-	 }).then(function(res) {
-		 if(res) {
-			 $http.post("http://172.17.0.13:3000/compartilharLivroTroca",
-				 { params: {
-					 "id": id,
-					 "amigo": amigo,
-					 "userLoged": $scope.session.email,
-					 "idLivro": idLivro,
-					 "idOutro": idOutro,
-					 "idOutroLivro": idOutroLivro,
-					 "poe": poe
-					 }
-				 })
-				 .success(function(response) {
-								 if (response == "SUCCESS") {
-									 $ionicPopup.alert({
-										title: 'Sucesso',
-										template: 'Seu livro ' + nomeLivro + ' foi compartilhado!'
-									}).then(function(res) {
-										 $ionicLoading.hide();
-										 $state.go('menu.livrando_meus_livros');
-									});
-								 }
-							 })
-				 .error(function(response) {
-								 if (response == "ERROR") {
-									 $ionicPopup.alert({
-										title: 'Alerta',
-										template: 'Algo deu errado!'
-									});
-									 $ionicLoading.hide();
-								 }
-					 });
-		 }
-	 });
+	$scope.enviarNotificacaoTroca = function(id, amigo, idLivro, livroNome, idOutro, idOutroLivro, nomeLivro, poe){
+	  $http.post("http://172.17.0.13:3000/compartilharLivroTroca",
+	    { params: {
+	      "id": id,
+	      "amigo": amigo,
+	      "userLoged": $scope.session.email,
+	      "idLivro": idLivro,
+	      "idOutro": idOutro,
+	      "idOutroLivro": idOutroLivro,
+	      "poe": poe
+	      }
+	    })
+	  .success(function(response) {
+	          if (response == "SUCCESS") {
+	            $ionicPopup.alert({
+	             title: 'Sucesso',
+	             template: 'Seu livro ' + nomeLivro + ' foi compartilhado!'
+	           }).then(function(res) {
+	              $ionicLoading.hide();
+	              $state.go('menu.livrando_meus_livros');
+	           });
+	          }
+	        })
+	    .error(function(response) {
+	            if (response == "ERROR") {
+	              $ionicPopup.alert({
+	               title: 'Alerta',
+	               template: 'Algo deu errado!'
+	             });
+	              $ionicLoading.hide();
+	            }
+	      });
+	 }
+	$scope.buscarLivrosEntregas = function(){
+		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
+		$http.post("http://172.17.0.13:3000/buscarLivrosEntregas",
+			{ params: {
+				"userLoged": $scope.session.email
+				}
+			})
+			.success(function(response) {
+					response = response.slice().reverse();
+					//$scope.livros = response;
+					$scope.result = response;
+          $ionicLoading.hide();
+            })
+      .error(function(response) {
+					$ionicLoading.hide();
+				});
+	}
+	$scope.buscarLivrosReceber = function(){
+		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
+		$http.post("http://172.17.0.13:3000/buscarLivrosReceber",
+			{ params: {
+				"userLoged": $scope.session.email
+				}
+			})
+			.success(function(response) {
+					response = response.slice().reverse();
+					//$scope.livros = response;
+					$scope.result = response;
+          $ionicLoading.hide();
+            })
+      .error(function(response) {
+					$ionicLoading.hide();
+				});
 	}
 	$scope.buscarHistorico = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information

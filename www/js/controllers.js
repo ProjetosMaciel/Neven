@@ -60,7 +60,7 @@ angular.module('starter.controllers', ['firebase','ngOpenFB', 'ionic-ratings'])
 
 })
 
-.controller('MeusAmigosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
+.controller('MeusAmigosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope,$timeout,$ionicModal) {
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
@@ -274,7 +274,7 @@ else if  ( response == "5") {
 					$ionicLoading.hide();
 				});
 	}
-
+//euaki
 	$scope.abrirPessoa = function(nomeAmigo, emailAmigo){
 		$rootScope.rootScopeNomeAmigo = nomeAmigo;
 		$rootScope.rootScopeEmailAmigo = emailAmigo;
@@ -597,6 +597,28 @@ $scope.buscarmediaavaliacao = function(){
 		});
 
 	}
+//**************** Teste Tiemout*******************
+//10 seconds delay
+        $timeout( function(){
+            $scope.test1 = "<ionic-ratings ratingsobj='ratingsObject' index='0'></ionic-ratings>";
+        }, 4000 );
+
+        //time
+        $scope.time = 0;
+
+        //timer callback
+        var timer = function() {
+            if( $scope.time < 10000 ) {
+                $scope.time += 1000;
+                $timeout(timer, 1000);
+            }
+        }
+
+        //run!!
+        $timeout(timer, 1000);
+
+//***********************
+
 	$scope.buscarAmigoInformacoes = function(emailAmigo) {
 
 
@@ -619,7 +641,7 @@ $scope.buscarmediaavaliacao = function(){
 	             .error(function(response) {
 	 					$ionicLoading.hide();
 	             });
-
+//akitbm
 							 $http.post("http://172.17.0.13:3000/buscarAvaliacao",
 							 	 { params: {
 							 	 "amigoEmail": $rootScope.rootScopeEmailAmigo,
@@ -630,9 +652,60 @@ $scope.buscarmediaavaliacao = function(){
 							 	$scope.kkk = response;
 							 	if (response) {
 							 		$rootScope.rootScopeStars = parseInt($scope.kkk.avaliacao);
-									var qwerty = $rootScope.rootScopeStars;
+
 							 	}
 							});
+          var j= $rootScope.rootScopeStars;
+							$scope.ratingsObject = {
+
+
+											iconOn: 'ion-ios-star',    //Optional
+											iconOff: 'ion-ios-star-outline',   //Optional
+											iconOnColor: 'rgb(200, 200, 100)',  //Optional
+											iconOffColor:  'rgb(0, 0, 0)',    //Optional
+									//    rating: 2,
+										rating: j, //Optional
+											minRating: 0,    //Optional
+											readOnly: false, //Optional
+
+											callback: function(rating, index) {    //Mandatory
+												$scope.ratingsCallback(rating, index);
+											}
+
+									};
+
+									$scope.ratingsCallback = function(rating, index) {
+										$http.post("http://172.17.0.13:3000/avaliacaoDoAmigo",
+												{ params: {
+												"amigoEmail": $rootScope.rootScopeEmailAmigo,
+													"avaliacao": rating,
+													"userLogged": $scope.session.email
+												 }
+											 })
+										console.log('Selected rating is : ', rating, ' and the index is : ', index);
+									};
+
+                  //***********Teste popup************
+									$ionicModal.fromTemplateUrl('templates/avaliacao.html', {
+										scope: $scope
+								 }).then(function(modal) {
+									 $scope.modal = modal;
+								 });
+
+								 // Triggered in the login modal to close it
+								 $scope.closeFoto = function() {
+									 $scope.modal.hide();
+								 };
+
+								 // Open the login modal
+								 $scope.avaliar = function() {
+
+											$scope.modal.show();
+
+								 };
+
+									//**************
+
 
 							$http.post("http://172.17.0.13:3000/buscarmedia",
 								{ params: {
@@ -644,36 +717,12 @@ $scope.buscarmediaavaliacao = function(){
 									$scope.reputacao = response;
 								}
 						 });
-	}
 
-	$scope.ratingsObject = {
+        var a = "<ionic-ratings ratingsobj='ratingsObject' index='0'></ionic-ratings>";
+				document.getElementById('mostrar').innerHTML= a;
 
 
-					iconOn: 'ion-ios-star',    //Optional
-					iconOff: 'ion-ios-star-outline',   //Optional
-					iconOnColor: 'rgb(200, 200, 100)',  //Optional
-					iconOffColor:  'rgb(0, 0, 0)',    //Optional
-          rating: 2,
-				//	rating: $rootScope.rootScopeStars, //Optional
-					minRating: 0,    //Optional
-					readOnly: false, //Optional
-
-					callback: function(rating, index) {    //Mandatory
-						$scope.ratingsCallback(rating, index);
-					}
-
-			};
-
-			$scope.ratingsCallback = function(rating, index) {
-				$http.post("http://172.17.0.13:3000/avaliacaoDoAmigo",
-						{ params: {
-						"amigoEmail": $rootScope.rootScopeEmailAmigo,
-							"avaliacao": rating,
-							"userLogged": $scope.session.email
-						 }
-					 })
-				console.log('Selected rating is : ', rating, ' and the index is : ', index);
-			};
+			}
 })
 .controller('ProcurandoLivrosCtrl', function($scope, IonicLogin, $ionicPopup, $http, $ionicLoading, $state, $rootScope) {
 
@@ -1606,7 +1655,7 @@ $scope.buscarmediaavaliacao = function(){
 	}
 	$scope.buscarNotificacoesLivros = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.21:3000/buscarNotificacoesLivros",
+		$http.post("http://172.17.0.13:3000/buscarNotificacoesLivros",
 			{ params: {
 				"userLogged": $scope.session.email
 				}
@@ -1656,7 +1705,7 @@ $scope.buscarmediaavaliacao = function(){
 				okText: 'Aceitar'
 			}).then(function(res) {
 				if(res) {
-					$http.post("http://172.17.0.21:3000/compartilharLivroEmprestimo",
+					$http.post("http://172.17.0.13:3000/compartilharLivroEmprestimo",
 						{ params: {
 							"id": id,
 							"amigo": amigo,
@@ -1696,7 +1745,7 @@ $scope.buscarmediaavaliacao = function(){
 				okText: 'Aceitar'
 			}).then(function(res) {
 				if(res) {
-					$http.post("http://172.17.0.21:3000/compartilharLivro",
+					$http.post("http://172.17.0.13:3000/compartilharLivro",
 						{ params: {
 							"id": id,
 							"amigo": amigo,
@@ -1745,7 +1794,7 @@ $scope.buscarmediaavaliacao = function(){
 				okText: 'Aceitar'
 			}).then(function(res) {
 				if(res) {
-					$http.post("http://172.17.0.21:3000/irParaEntregas",
+					$http.post("http://172.17.0.13:3000/irParaEntregas",
 						{ params: {
 							"id": id,
 							"amigo": amigo,
@@ -1780,7 +1829,7 @@ $scope.buscarmediaavaliacao = function(){
 	}
 	$scope.buscarLivrosTroca = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.21:3000/buscarLivrosTroca",
+		$http.post("http://172.17.0.13:3000/buscarLivrosTroca",
 			{ params: {
 				"userLogged": $scope.session.email,
 				"amigo": $rootScope.rootScopeAmigoTroca
@@ -1796,7 +1845,7 @@ $scope.buscarmediaavaliacao = function(){
 	}
 
 	$scope.enviarNotificacaoTroca = function(id, amigo, idLivro, livroNome, idOutro, idOutroLivro, nomeLivro, poe){
-	  $http.post("http://172.17.0.21:3000/compartilharLivroTroca",
+	  $http.post("http://172.17.0.13:3000/compartilharLivroTroca",
 	    { params: {
 	      "id": id,
 	      "amigo": amigo,
@@ -1830,7 +1879,7 @@ $scope.buscarmediaavaliacao = function(){
 	 }
 	$scope.buscarLivrosEntregas = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.21:3000/buscarLivrosEntregas",
+		$http.post("http://172.17.0.13:3000/buscarLivrosEntregas",
 			{ params: {
 				"userLoged": $scope.session.email
 				}
@@ -1847,7 +1896,7 @@ $scope.buscarmediaavaliacao = function(){
 	}
 	$scope.buscarLivrosReceber = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.21:3000/buscarLivrosReceber",
+		$http.post("http://172.17.0.13:3000/buscarLivrosReceber",
 			{ params: {
 				"userLoged": $scope.session.email
 				}
