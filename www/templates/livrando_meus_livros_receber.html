@@ -1,15 +1,15 @@
 <ion-view view-title="Entregas pendentes" can-swipe-back="false" cache-view="false" hide-back-button="true">
-  <!--<ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>-->
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon" ng-click="abrirMenu()"></button>
+  </ion-nav-buttons>
   <ion-content class="padding">
     <div class="centerDiv">
 
       <div class="item item-divider" ng-init="buscarLivrosReceber()">
-        A serem recebido
+        A serem recebidos
       </div>
       <ion-list ng-repeat="rr in resultReceber">
-    		<ion-item style="text-align:left;" class="item-text-wrap">
+    		<ion-item style="text-align:left;">
     			<table>
     				<tr>
               <td>
@@ -28,10 +28,10 @@
       <br>
 
       <div class="item item-divider" ng-init="buscarLivrosEntregas()">
-        A serem entregue
+        A serem entregues
       </div>
       <ion-list ng-repeat="re in resultEntregar">
-    		<ion-item style="text-align:left;" ng-click="entregarLivro(r.id, r.ltuserAdquirirEmail, r.livnome, r.status, r.livroId, r.pontoencontroId)" class="item-text-wrap">
+    		<ion-item style="text-align:left;" ng-click="entregarLivro(re.id, re.ltuserAdquirirEmail, re.livnome, re.status, re.livroId, re.pontoencontroId)">
     			<table>
     				<tr>
               <td>

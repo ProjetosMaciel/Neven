@@ -20,7 +20,8 @@
           <p>Data de nascimento:</p>
         </div>
         <label class="item item-input">
-          <input type="date" placeholder="dd/mm/aaaa" ng-model="editarPerfilDataNascimento">
+          <input placeholder="dd/mm/aaaa" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date" ng-model="editarPerfilDataNascimento">
+          <!--<input type="date" placeholder="dd/mm/aaaa" ng-model="editarPerfilDataNascimento">-->
          </label>
          <div>
            <p>Descrição do usuário:</p>

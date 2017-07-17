@@ -1,22 +1,46 @@
-<ion-view view-title="Livros a receber" can-swipe-back="false" cache-view="false" hide-back-button="true">
+<ion-view view-title="Entregas pendentes" can-swipe-back="false" cache-view="false" hide-back-button="true">
   <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <button menu-toggle="left" class="button button-icon icon ion-navicon" ng-click="abrirMenu()"></button>
   </ion-nav-buttons>
   <ion-content class="padding">
-    <div class="centerDiv" ng-init="buscarLivrosReceber()">
+    <div class="centerDiv">
 
-      <p>Livros pendentes para serem recebidos:</p>
-      <ion-list ng-repeat="r in result">
-    		<ion-item style="text-align:left;" class="item-text-wrap">
+      <div class="item item-divider" ng-init="buscarLivrosReceber()">
+        A serem recebidos
+      </div>
+      <ion-list ng-repeat="rr in resultReceber">
+    		<ion-item style="text-align:left;">
     			<table>
     				<tr>
               <td>
                 <ion-thumbnail item-left>
-                  <img height="100" ng-src="{{r.livfoto}}">
+                  <img height="100" ng-src="{{rr.livfoto}}">
                 </ion-thumbnail>
               </td>
     					<td style="padding-left: 10px;vertical-align: middle;">
-    						<p>A ser recebido por <b>{{r.ltuserAdquirirEmail}}</b></p>
+    						<p>A ser recebido por <b>{{rr.ltuserAdquirirEmail}}</b></p>
+    					</td>
+    				</tr>
+    			</table>
+    		</ion-item>
+    	</ion-list>
+
+      <br>
+
+      <div class="item item-divider" ng-init="buscarLivrosEntregas()">
+        A serem entregues
+      </div>
+      <ion-list ng-repeat="re in resultEntregar">
+    		<ion-item style="text-align:left;" ng-click="entregarLivro(re.id, re.ltuserAdquirirEmail, re.livnome, re.status, re.livroId, re.pontoencontroId)">
+    			<table>
+    				<tr>
+              <td>
+                <ion-thumbnail item-left>
+                  <img height="100" ng-src="{{re.livfoto}}">
+                </ion-thumbnail>
+              </td>
+    					<td style="padding-left: 10px;vertical-align: middle;">
+    						<p>A ser entregue para <b>{{re.ltuserAdquirirEmail}}</b></p>
     					</td>
     				</tr>
     			</table>
@@ -25,10 +49,10 @@
 
     </div>
   </ion-content>
-  <ion-tabs class="tabs-positive tabs-striped">
+  <!--<ion-tabs class="tabs-positive tabs-striped">
       <ion-tab icon-on="ion-arrow-graph-down-left" icon-off="ion-arrow-graph-down-left" href="#/menu/livrando_meus_livros_receber">
       </ion-tab>
       <ion-tab icon-on="ion-arrow-graph-up-right" icon-off="ion-arrow-graph-up-right" href="#/menu/livrando_meus_livros_entregas">
       </ion-tab>
-  </ion-tabs>
+  </ion-tabs>-->
 </ion-view>

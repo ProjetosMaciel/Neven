@@ -1877,40 +1877,40 @@ $scope.buscarmediaavaliacao = function(){
 	            }
 	      });
 	 }
-	$scope.buscarLivrosEntregas = function(){
-		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarLivrosEntregas",
-			{ params: {
-				"userLoged": $scope.session.email
-				}
-			})
-			.success(function(response) {
-					response = response.slice().reverse();
-					//$scope.livros = response;
-					$scope.result = response;
-          $ionicLoading.hide();
-            })
-      .error(function(response) {
-					$ionicLoading.hide();
-				});
-	}
-	$scope.buscarLivrosReceber = function(){
-		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
-		$http.post("http://172.17.0.13:3000/buscarLivrosReceber",
-			{ params: {
-				"userLoged": $scope.session.email
-				}
-			})
-			.success(function(response) {
-					response = response.slice().reverse();
-					//$scope.livros = response;
-					$scope.result = response;
-          $ionicLoading.hide();
-            })
-      .error(function(response) {
-					$ionicLoading.hide();
-				});
-	}
+	 $scope.buscarLivrosEntregas = function(){
+ 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
+ 		$http.post("http://172.17.0.13:3000/buscarLivrosEntregas",
+ 			{ params: {
+ 				"userLoged": $scope.session.email
+ 				}
+ 			})
+ 			.success(function(response) {
+ 					response = response.slice().reverse();
+ 					//$scope.livros = response;
+ 					$scope.resultEntregar = response;
+           $ionicLoading.hide();
+             })
+       .error(function(response) {
+ 					$ionicLoading.hide();
+ 				});
+ 	}
+ 	$scope.buscarLivrosReceber = function(){
+ 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
+ 		$http.post("http://172.17.0.13:3000/buscarLivrosReceber",
+ 			{ params: {
+ 				"userLoged": $scope.session.email
+ 				}
+ 			})
+ 			.success(function(response) {
+ 					response = response.slice().reverse();
+ 					//$scope.livros = response;
+ 					$scope.resultReceber = response;
+           $ionicLoading.hide();
+             })
+       .error(function(response) {
+ 					$ionicLoading.hide();
+ 				});
+ 	}
 	$scope.buscarHistorico = function(){
 		$scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
 		$http.post("http://172.17.0.13:3000/buscarHistorico",
@@ -2816,31 +2816,70 @@ $scope.buscarLikes = function(id){
 .controller('AccountCtrl', function($scope) {
 
 })
-.controller('MenuCtrl', function($scope, $ionicPopup, IonicLogin) {
+.controller('MenuCtrl', function($scope, $ionicPopup, IonicLogin, $http, $ionicLoading, $state) {
 
 	$scope.$on('$ionicView.enter', function(e) {
     $scope.session = JSON.parse( window.localStorage['session']) ; // read the session information
+		//$scope.abrirMenu();
   });
 
   $scope.logout = function(){
   	IonicLogin.logout($scope.session.email);
   }
-	$scope.atualizarPerfil = function(){
 
-	$http.post("http://172.17.0.13:3000/atualizarPerfil",
+	$scope.abrirEntregas = function(){
+		$state.go('menu.livrando_meus_livros_receber');
+  }
+
+	$scope.abrirMenu = function(){
+		/*$ionicPopup.alert({
+			title: 'Menu',
+			template: 'Entrou no menu!'
+		});*/
+		$http.post("http://172.17.0.13:3000/buscarLivrosEntregas",
 			{ params: {
-						"userEmail": $scope.session.email
-
-						}
-						})
+				"userLoged": $scope.session.email
+				}
+			})
 			.success(function(response) {
-										$scope.user = response;
-										$ionicLoading.hide();
-						})
-			.error(function(response) {
+					//response = response.slice().reverse();
+					//$scope.livros = response;
+					//$scope.result = response;
+					if (response.length > 0) {
+						var html = "<ion-item><div style='height:70px;padding-left:15px;padding-top:15px;color:#404040;font-size: 16px;'><i class='icon ion-android-cart menu-icons' style='padding-right:12px;'></i>Entregas pendentes</div></ion-item>";
+						document.getElementById('linha_tabela').innerHTML = html;
+					}
+					else {
+						$http.post("http://172.17.0.13:3000/buscarLivrosReceber",
+							{ params: {
+								"userLoged": $scope.session.email
+								}
+							})
+							.success(function(response) {
+									//response = response.slice().reverse();
+									//$scope.livros = response;
+									//$scope.result = response;
+									if (response.length > 0) {
+										var html = "<ion-item><div style='height:70px;padding-left:15px;padding-top:15px;color:#404040;font-size: 16px;'><i class='icon ion-android-cart menu-icons' style='padding-right:12px;'></i>Entregas pendentes</div></ion-item>";
+										document.getElementById('linha_tabela').innerHTML = html;
+									}
+									else {
+										var html = "";
+										document.getElementById('linha_tabela').innerHTML = html;
+									}
+				          $ionicLoading.hide();
+				            })
+				      .error(function(response) {
+									$ionicLoading.hide();
+								});
+					}
+
+          $ionicLoading.hide();
+            })
+      .error(function(response) {
 					$ionicLoading.hide();
 				});
-	}
+  }
 })
 
 .controller('AdminLivrariasCtrl', function($scope, $ionicPopup, IonicLogin, $http, $ionicLoading, $rootScope, $state) {

@@ -5,7 +5,7 @@
       </ion-nav-back-button>
 
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="abrirMenu()">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
@@ -65,14 +65,7 @@
              </tr>
            </table>
         </ion-item>
-        <ion-item menu-close href="#/menu/livrando_meus_livros_receber">
-           <table>
-             <tr>
-               <td style="vertical-align:middle;width:30px;"><i class="icon ion-android-cart menu-icons"></i></td>
-               <td style="padding-left: 5px;vertical-align:middle;">Entregas pendentes</td>
-             </tr>
-           </table>
-        </ion-item>        
+        <span menu-close ng-click="abrirEntregas()" id="linha_tabela"></span>
         <ion-item menu-close href="#/menu/livrando_livros_desejados">
           <table>
             <tr>

@@ -2846,7 +2846,7 @@ $scope.buscarLikes = function(id){
 					//$scope.livros = response;
 					//$scope.result = response;
 					if (response.length > 0) {
-						var html = "<ion-item><div style='height:60px;padding-left:15px;padding-top:15px;color:#404040;'><i class='icon ion-android-cart menu-icons' style='padding-right:10px;'></i>Entregas pendentes</div></ion-item>";
+						var html = "<ion-item><div style='height:70px;padding-left:15px;padding-top:15px;color:#404040;font-size: 16px;'><i class='icon ion-android-cart menu-icons' style='padding-right:12px;'></i>Entregas pendentes</div></ion-item>";
 						document.getElementById('linha_tabela').innerHTML = html;
 					}
 					else {
@@ -2860,7 +2860,7 @@ $scope.buscarLikes = function(id){
 									//$scope.livros = response;
 									//$scope.result = response;
 									if (response.length > 0) {
-										var html = "<ion-item menu-close style='vertical-align:middle;padding-left:15px;' href='#/menu/livrando_meus_livros_receber'><i class='icon ion-android-cart menu-icons' style='padding-right:10px;'></i>Entregas pendentes</ion-item>";
+										var html = "<ion-item><div style='height:70px;padding-left:15px;padding-top:15px;color:#404040;font-size: 16px;'><i class='icon ion-android-cart menu-icons' style='padding-right:12px;'></i>Entregas pendentes</div></ion-item>";
 										document.getElementById('linha_tabela').innerHTML = html;
 									}
 									else {
